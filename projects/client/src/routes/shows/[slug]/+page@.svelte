@@ -46,7 +46,7 @@
   const isLoading = $derived($query.isLoading);
 
   const peopleQuery = $derived(useQuery(showPeopleQuery({ slug })));
-  const cast = $derived($peopleQuery.data?.cast.slice(0, 10) ?? []);
+  const cast = $derived($peopleQuery.data?.cast ?? []);
   const castLoading = $derived($peopleQuery.isLoading);
 
   const seasonsQuery = $derived(useQuery(showSeasonsQuery({ slug })));

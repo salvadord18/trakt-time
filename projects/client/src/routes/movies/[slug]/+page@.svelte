@@ -69,7 +69,7 @@
   );
 
   const peopleQuery = $derived(useQuery(moviePeopleQuery({ slug })));
-  const cast = $derived($peopleQuery.data?.cast.slice(0, 10) ?? []);
+  const cast = $derived($peopleQuery.data?.cast ?? []);
   const castLoading = $derived($peopleQuery.isLoading);
 
   const relatedResult = $derived(useRelatedList({ type: 'movie', slug, page: 1, limit: 12 }));
