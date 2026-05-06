@@ -86,60 +86,40 @@ export const manifest: Partial<ManifestOptions> = {
     },
   ],
   screenshots: [
+    // Captured by `deno task client:pwa:screenshots`. Always pulls from
+    // unauth-friendly surfaces so the script doesn't need credentials.
     {
       type: 'image/webp',
-      src: 'pwa/screenshots/1_welcome.webp',
-      sizes: '778x1738',
+      src: 'pwa/screenshots/discover-portrait.webp',
+      sizes: '1556x3476',
     },
     {
       type: 'image/webp',
-      src: 'pwa/screenshots/2_shows.webp',
-      sizes: '778x1738',
+      src: 'pwa/screenshots/show-portrait.webp',
+      sizes: '1556x3476',
     },
     {
       type: 'image/webp',
-      src: 'pwa/screenshots/3_show.webp',
-      sizes: '778x1738',
+      src: 'pwa/screenshots/movie-portrait.webp',
+      sizes: '1556x3476',
     },
     {
       type: 'image/webp',
-      src: 'pwa/screenshots/4_movies.webp',
-      sizes: '778x1738',
-    },
-    {
-      type: 'image/webp',
-      src: 'pwa/screenshots/5_movie.webp',
-      sizes: '778x1738',
-    },
-    {
-      type: 'image/webp',
-      src: 'pwa/screenshots/1_wide_welcome.webp',
+      src: 'pwa/screenshots/discover-wide.webp',
       form_factor: 'wide',
-      sizes: '1298x902',
+      sizes: '2596x1804',
     },
     {
       type: 'image/webp',
-      src: 'pwa/screenshots/2_wide_shows.webp',
+      src: 'pwa/screenshots/show-wide.webp',
       form_factor: 'wide',
-      sizes: '1298x902',
+      sizes: '2596x1804',
     },
     {
       type: 'image/webp',
-      src: 'pwa/screenshots/3_wide_show.webp',
+      src: 'pwa/screenshots/movie-wide.webp',
       form_factor: 'wide',
-      sizes: '1298x902',
-    },
-    {
-      type: 'image/webp',
-      src: 'pwa/screenshots/4_wide_movies.webp',
-      form_factor: 'wide',
-      sizes: '1298x902',
-    },
-    {
-      type: 'image/webp',
-      src: 'pwa/screenshots/5_wide_movie.webp',
-      form_factor: 'wide',
-      sizes: '1298x902',
+      sizes: '2596x1804',
     },
   ],
 };

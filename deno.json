@@ -7,7 +7,8 @@
     "install": "deno install --allow-scripts --frozen",
     "format": "deno fmt && deno lint --fix",
     "client:dev": "cd projects/client && deno task dev",
-    "client:dev:contrib": "cd projects/client && deno task dev:contrib"
+    "client:dev:contrib": "cd projects/client && deno task dev:contrib",
+    "client:pwa:screenshots": "cd projects/client && deno task pwa:screenshots"
   },
   "unstable": [
     "broadcast-channel",

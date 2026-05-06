@@ -70,6 +70,22 @@ npx wrangler deploy
 Prefer letting CI do this. Local deploys are useful for staging branches under
 [Cloudflare preview deployments](https://developers.cloudflare.com/workers/configuration/previews/).
 
+## Regenerating PWA install-prompt screenshots
+
+The `static/pwa/screenshots/` set is what the Android install prompt shows on supported browsers. Whenever the UI shifts enough that the existing screenshots look stale, regenerate them locally:
+
+```sh
+# terminal 1
+deno task client:dev
+
+# terminal 2 (once vite reports ready)
+deno task client:pwa:screenshots
+```
+
+The script (`projects/client/.scripts/pwa-screenshots.ts`) uses Playwright's bundled Chromium. It captures three unauth-friendly surfaces — `/discover`, `/movies/the-matrix-1999`, `/shows/breaking-bad` — at portrait (1556×3476) and wide (2596×1804) resolutions, pre-seeds the cookie-consent cookie so the banner stays out of the shot, and writes webp into `static/pwa/screenshots/`. ImageMagick (`magick`) is required for the PNG → webp step.
+
+Override the dev server URL with `PWA_SCREENSHOT_URL=https://<...> deno task client:pwa:screenshots` if you want to capture against preview / a deployed worker. Don't run from CI — it would double pipeline time and the screenshots only churn when the UI does.
+
 ## Required environment variables
 
 ### Build time
