@@ -1,4 +1,4 @@
-# Contributing to trakt-web
+# Contributing to trakt-time
 
 First off — **thank you** for taking the time to contribute! 🎬
 
@@ -17,7 +17,7 @@ and fix it.
 
 ## Feature Requests
 
-Have an idea that could make trakt-web better? Start a
+Have an idea that could make trakt-time better? Start a
 [GitHub Discussion](../../discussions/new) so we can explore it together before
 anyone writes code. This helps make sure the effort is well-spent and aligns
 with where the project is headed.
@@ -39,7 +39,7 @@ A few guidelines to keep things smooth:
 
 ## i18n Contributions
 
-Helping make trakt-web available in more languages is a fantastic way to
+Helping make trakt-time available in more languages is a fantastic way to
 contribute, and no deep technical knowledge is required!
 
 1. **Find what's missing:** Check the `client/i18n/messages` folder - each

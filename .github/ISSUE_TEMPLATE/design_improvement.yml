@@ -1,6 +1,6 @@
 name: 🎨 Suggest a Design Improvement
 description: Share a visual or UX improvement you'd like to see
-labels: ["design"]
+labels: ['design']
 assignees:
   - ElMagnea
 body:
@@ -10,7 +10,7 @@ body:
       label: Code of Conduct
       description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
-        - label: I have read and agree to the project's [Code of Conduct](https://github.com/trakt/trakt-web/blob/main/.github/CODE_OF_CONDUCT.md)
+        - label: I have read and agree to the project's [Code of Conduct](https://github.com/trakt/trakt-time/blob/main/.github/CODE_OF_CONDUCT.md)
           required: true
 
   - type: textarea

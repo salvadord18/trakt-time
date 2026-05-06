@@ -1,4 +1,4 @@
-# trakt-web
+# trakt-time
 
 ## Developing
 

@@ -1,210 +1,149 @@
-# trakt-web
+# trakt-time
 
-<a href="https://app.deepsource.com/gh/trakt/trakt-web/"><img src="https://app.deepsource.com/gh/trakt/trakt-web.svg/?label=code+coverage&show_trend=true&token=tiC5fNXEfyZqbFXqMggxzbWT" /></a>
-<a href="https://app.deepsource.com/gh/trakt/trakt-web/"><img src="https://app.deepsource.com/gh/trakt/trakt-web.svg/?label=active+issues&show_trend=true&token=tiC5fNXEfyZqbFXqMggxzbWT" /></a>
-<a href="https://app.deepsource.com/gh/trakt/trakt-web/"><img src="https://app.deepsource.com/gh/trakt/trakt-web.svg/?label=resolved+issues&show_trend=true&token=tiC5fNXEfyZqbFXqMggxzbWT" /></a>
+<a href="https://github.com/Hobo-Ware/trakt-time/actions/workflows/ci_cd.yml"><img src="https://github.com/Hobo-Ware/trakt-time/actions/workflows/ci_cd.yml/badge.svg" /></a>
 
-<a href="https://github.com/trakt/trakt-web/actions/workflows/ci_cd.yml"><img src="https://github.com/trakt/trakt-web/actions/workflows/ci_cd.yml/badge.svg" /></a>
+> **Note:** This is an experiment. We're rebuilding a Trakt client app with a
+> mobile-first, TV Time-like feel. Started as an AI hackathon project, kept
+> alive for fun and learning. It's not affiliated with Trakt and not aiming to
+> replace anything — just a sandbox.
 
 ---
 
-**Contributions are welcome!** Whether you want to fix a bug, improve a
-translation, or build something new - PRs are open and encouraged. No need to
-ask for permission first, just dive in. See
+**Open source, contributions welcome!** PRs of any size are encouraged. Bug
+fixes, polish, new features, translations — dive in. See
 [CONTRIBUTING.md](.github/CONTRIBUTING.md) for the details.
 
 ---
 
-## Project Structure
+## What's in here
 
-This [workspace](https://docs.deno.com/runtime/fundamentals/workspaces/) is
-composed the following projects:
+The repo is a [Deno workspace](https://docs.deno.com/runtime/fundamentals/workspaces/)
+with one project today:
 
-- **`client`:** The frontend of our application. This project houses the Trakt
-  Web client, built with Deno and SvelteKit. It's designed to be efficient and
-  user-friendly, providing quick access to media insights.
+- **`projects/client`** — the SvelteKit frontend that talks to the Trakt API
+  and renders the trakt-time UI. Deployed to a Cloudflare Worker.
 
-## Environment Variables
+## Getting started
 
-The following environment variables are required for the workspace to function
-properly:
+You need [Deno](https://docs.deno.com/runtime/getting_started/installation/)
+installed. Once you have it:
 
-### Development
+1. Clone the repository.
+2. Install dependencies: `deno task install`
+3. Start the dev server: `deno task client:dev`
 
-- **`TRAKT_CLIENT_ID`:** The client ID for the Trakt API.
-- **`TRAKT_CLIENT_SECRET`:** The client secret for the Trakt API.
+### Trakt API credentials
 
-### External Contribution - Get Involved!
+You need a personal Trakt application to develop against:
 
-Want to contribute to Trakt Web? Great! Here's how to get set up:
+1. Create one at [Trakt Settings → Applications](https://trakt.tv/oauth/applications).
+2. Add these `Redirect URIs` (one per line):
 
-1. **Create a Trakt Application:** Go to
-   [Trakt Settings](https://trakt.tv/oauth/applications) and create a new
-   application.
-1. **Set the `Redirect uri:`:** Add the following URIs (one per line):
-   - `http://localhost:5173`
-   - `http://localhost:5173/callback`
-   - `http://localhost:4173`
-   - `http://localhost:4173/callback`
-1. **Set the `Javascript (cors) origins:`:** Add the following origins (one per
-   line):
-   - `http://localhost:5173`
-   - `http://localhost:5173/callback`
-   - `http://localhost:4173`
-   - `http://localhost:4173/callback`
-1. Use the Client ID and Client Secret in your development environment.
+   ```
+   http://localhost:5173
+   http://localhost:5173/callback
+   http://localhost:4173
+   http://localhost:4173/callback
+   ```
 
-> **Note:** Port 5173 is for development mode, while port 4173 is for production
-> preview.
+3. Add the same values to `Javascript (cors) origins`.
+4. Export the credentials before running tasks:
 
-## Getting Started
+   ```sh
+   export TRAKT_CLIENT_ID=...
+   export TRAKT_CLIENT_SECRET=...
+   ```
 
-This is a Deno project, so you need to have Deno installed on your machine
-please refer to the
-[Deno installation guide](https://docs.deno.com/runtime/getting_started/installation/).
+External contributors should use `deno task client:dev:contrib` so the dev
+server points at the public Trakt environment instead of the private one.
 
-1. **Clone the repository**
-1. **Install dependencies:** `deno task install`
-1. **Run tasks:**
+> Port `5173` is for `vite dev`, `4173` is for `vite preview`.
 
-- Workspace:
-  - Format & Lint: `deno task format`
+## Workspace tasks
 
-- Client:
-  - Development: `deno task client:dev`
-  - Contributors: `deno task client:dev:contrib`
+From the repo root:
 
-## Client Environment - Development Setup
+| Task                       | What it does                          |
+| -------------------------- | ------------------------------------- |
+| `deno task install`        | Install dependencies                  |
+| `deno task format`         | `deno fmt` + `deno lint --fix`        |
+| `deno task client:dev`     | Run the client dev server             |
+| `deno task client:dev:contrib` | Same, but against the public Trakt API |
 
-### Web Development
+From `projects/client/`:
 
-For web development, run `deno task dev` or `deno task dev:contrib` (for
-external contributors) in the `projects/client` directory. Then open your
-browser to see your work.
+| Task                  | What it does                                    |
+| --------------------- | ----------------------------------------------- |
+| `deno task check`     | `svelte-kit sync` + `svelte-check`              |
+| `deno task test:unit` | Run Vitest                                      |
+| `deno task build`     | Build for Cloudflare Workers (`adapter-cloudflare`) |
+| `deno task preview`   | Serve the production build locally              |
 
-### Android Development
-
-For Android development, you can:
-
-- **Install Development PWA:** Install a development version of the Progressive
-  Web App on your Android device with remote debugging capabilities.
-- **Debug Website Version:** Use Chrome browser for debugging the website
-  version.
-
-To set this up, refer to the Chrome Remote Debugging
-[documentation](https://developer.chrome.com/docs/devtools/remote-debugging/).
-Connect your development environment to Android through the device management
-portal at `chrome://inspect/#devices`. This works with:
-
-- **Option 1: Android Studio Emulated Device**
-- **Option 2: Physical Device (USB Connection)**
-
-After connecting, set up a reverse proxy with:
-
-```bash
-adb reverse tcp:5173 tcp:5173
-```
-
-### iOS Development
-
-**Coming Soon!**
-
-## Build Trakt Web
-
-To build the Trakt Web client, run:
+## Build & local preview
 
 ```sh
-cd projects/client/
-[deno|npm|bun] run build
+cd projects/client
+deno task build
+deno task preview
 ```
 
-## Production Preview
-
-### Vite
-
-Run the following command:
+If you want a real Cloudflare Worker preview locally (instead of `vite preview`):
 
 ```sh
-[deno|npm|bun] run build:preview && [deno|npm|bun] run preview
+cd projects/client
+deno task build
+npx wrangler dev   # or `bunx wrangler dev`
 ```
 
-## Update Minor Dependencies
+> Wrangler currently can't run under Deno because Deno doesn't yet support Node
+> VM modules ([deno#26349](https://github.com/denoland/deno/issues/26349)). Use
+> `npm` or `bun` for the wrangler step.
 
-### Install `npm-check-updates`
+## Deploy
 
-```bash
+The Cloudflare Worker is deployed from CI on every push to `main` (see
+`.github/workflows/ci_cd.yml`). For ad-hoc deploys from your machine:
+
+```sh
+cd projects/client
+deno task build
+npx wrangler deploy
+```
+
+You'll need `wrangler login` once and the right secrets configured (see
+[INFRASTRUCTURE.md](INFRASTRUCTURE.md)).
+
+## Updating dependencies
+
+We use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates)
+because the client is a `package.json` project living inside a Deno workspace.
+
+```sh
 deno install -g --allow-all -n ncu npm:npm-check-updates
 ```
 
-NOTE: For the client project add the `-p npm` since we're using a `package.json`
-definition for the svelte project.
+For minor bumps:
 
-### Production
+```sh
+ncu --dep prod -t minor       # check
+ncu --dep prod -t minor -u    # update
+ncu --dep dev -t minor
+ncu --dep dev -t minor -u
+```
 
-- **Check:** `ncu --dep prod -t minor`
-- **Update:** `ncu --dep prod -t minor -u`
+For majors: `ncu --dep prod -t latest`, do them one at a time, build, fix
+breakage, commit.
 
-### Development
+## Tech stack & acknowledgements
 
-- **Check:** `ncu --dep dev -t minor`
-- **Update:** `ncu --dep dev -t minor -u`
-
-Verify that the above steps run smoothly and revert any changes that break the
-build (this should generally not be the case).
-
-## Update Major Dependencies
-
-- **Production:** `ncu --dep prod -t latest`
-- **Development:** `ncu --dep dev -t latest`
-
-For each entry listed as a result:
-
-1. `ncu <ENTRY> -u -t latest`
-1. Build
-1. Update any breaks
-1. Test
-1. Commit
-
-## Resolving i18n Conflicts
-
-### Handling Translation Conflicts
-
-If rebasing causes conflicts in your `client/i18n/messages` folder, here's how
-to fix them:
-
-When merging your changes with the `main` branch, conflicts may occur in
-translation files. This is normal when multiple people are working on
-internationalization.
-
-To resolve these conflicts:
-
-1. **Make sure you have the `deno` CLI installed**
-2. **Run the resolution command** from the project root:
-
-   ```bash
-   deno task client:i18n:resolve
-   ```
-
-   Or if you're in the `projects/client` directory:
-
-   ```bash
-   deno task i18n:resolve
-   ```
-
-These commands will resolve conflicts in the `i18n/messages/*.json` files and
-merge the translations properly.
-
-For more details about infrastructure, see:
-[INFRASTRUCTURE.md](INFRASTRUCTURE.md).
-
-## Acknowledgements
-
-Trakt Web is made possible by these amazing tools and services:
+trakt-time stands on the shoulders of:
 
 <a href="https://svelte.dev/"><img src="https://img.shields.io/badge/Built_with-SvelteKit-FF3E00?logo=svelte&logoColor=white" alt="Built with SvelteKit" /></a>
-<a href="https://sentry.io/"><img src="https://img.shields.io/badge/Monitoring_by-Sentry-362D59?logo=sentry&logoColor=white" alt="Monitoring by Sentry" /></a>
-<a href="https://crowdin.com/"><img src="https://img.shields.io/badge/Localized_with-Crowdin-2E3340?logo=crowdin&logoColor=white" alt="Localized with Crowdin" /></a>
+<a href="https://www.cloudflare.com/developer-platform/workers/"><img src="https://img.shields.io/badge/Hosted_on-Cloudflare_Workers-F38020?logo=cloudflare&logoColor=white" alt="Hosted on Cloudflare Workers" /></a>
 
-Special thanks to [Sentry](https://sentry.io/) and
-[Crowdin](https://crowdin.com/) for supporting open source projects with free
-licenses.
+Built on top of the original [trakt/trakt-web](https://github.com/trakt/trakt-web)
+codebase, which we forked and reshaped for this experiment. Huge thanks to the
+upstream maintainers.
+
+For infrastructure-flavored details (env vars, wrangler secrets, Typesense,
+etc.), see [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
