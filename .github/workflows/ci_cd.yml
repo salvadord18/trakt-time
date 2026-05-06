@@ -56,6 +56,12 @@ jobs:
       - name: Set up Deno
         uses: ./.github/actions/setup-deno
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          # wrangler@4 requires Node ≥22; the runner default is still v20.
+          node-version: "22"
+
       - name: Build the client
         working-directory: projects/client
         env:
