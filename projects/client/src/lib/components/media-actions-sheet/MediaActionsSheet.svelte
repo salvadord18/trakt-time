@@ -2,6 +2,7 @@
   import { RatingGroup } from 'bits-ui';
   import { useQuery } from '$lib/features/query/useQuery.ts';
   import { useFavorites } from '$lib/sections/media-actions/favorite/useFavorites.ts';
+  import { useHasWatched } from '$lib/sections/media-actions/mark-as-watched/useHasWatched.ts';
   import { useListedOnIds } from '$lib/sections/media-actions/list/useListedOnIds.ts';
   import { useRatings } from '$lib/sections/summary/components/rating/useRatings.ts';
   import { useWatchlist } from '$lib/sections/media-actions/watchlist/useWatchlist.ts';
@@ -33,6 +34,8 @@
 
   const { isWatchlisted, addToWatchlist, removeFromWatchlist, isWatchlistUpdating } =
     $derived(useWatchlist({ type, media: { id } }));
+
+  const { hasWatched } = $derived(useHasWatched({ type, id }));
 
   const listsQuery = useQuery(userListsQuery({}));
   const lists = $derived($listsQuery.data ?? []);
@@ -90,7 +93,7 @@
               onValueChange={onRatingChange}
               allowHalf
               max={5}
-              disabled={$pendingRating !== null}
+              disabled={$pendingRating !== null || !$hasWatched}
             >
               {#snippet children({ items })}
                 {#each items as item (item.index)}
@@ -113,7 +116,7 @@
           <button
             class="icon-action-btn"
             class:is-active={$isFavorited}
-            disabled={$isUpdatingFavorite}
+            disabled={$isUpdatingFavorite || !$hasWatched}
             onclick={toggleFavorite}
             aria-label={$isFavorited
               ? m.button_label_remove_from_favorites({ title })
@@ -147,6 +150,10 @@
           <span class="action-label">{m.button_text_watchlist()}</span>
         </div>
       </div>
+
+      {#if !$hasWatched}
+        <p class="watch-first-hint">{m.hint_mark_as_watched_to_rate()}</p>
+      {/if}
 
       {#if lists.length > 0}
         <div class="lists-section">
@@ -329,6 +336,14 @@
     &:disabled {
       opacity: 0.6;
     }
+  }
+
+  .watch-first-hint {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-style: italic;
   }
 
   .lists-section {

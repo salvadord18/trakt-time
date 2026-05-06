@@ -246,6 +246,7 @@
   "text_episodes_unit": "episodes",
   "header_rate_or_favorite": "Rate or favorite",
   "button_text_rate_or_favorite": "Rate / Favorite",
+  "hint_mark_as_watched_to_rate": "Mark as watched to rate or favorite",
   "button_text_post_comment": "Post",
   "button_text_add_comment_short": "Add a review",
   "header_watched_history": "WATCHED HISTORY",
