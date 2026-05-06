@@ -9,7 +9,7 @@ applyTo: "**"
 
 ## Tech Stack
 
-SvelteKit + TypeScript app (Svelte 5, runes mode) deployed to Cloudflare Pages. Monorepo using Deno workspaces with the app at `projects/client/`.
+SvelteKit + TypeScript app (Svelte 5, runes mode) deployed to a single Cloudflare Worker via `@sveltejs/adapter-cloudflare`. Monorepo using Deno workspaces with the app at `projects/client/`. Worker config lives in `projects/client/wrangler.jsonc`; CI deploys on push to `main` (`.github/workflows/ci_cd.yml`). See [INFRASTRUCTURE.md](../../INFRASTRUCTURE.md) for operational detail.
 
 ## Project Structure
 
@@ -63,7 +63,7 @@ State management uses `BehaviorSubject` from RxJS, often backed by `localStorage
 `lib/requests/` contains query definitions via `defineQuery()` and pure mapper functions that transform API responses to domain models. Zod validates at the boundary.
 
 ### i18n via Paraglide
-Internationalization uses Paraglide JS (Inlang). Messages are type-safe functions: `m.page_title_home()`. Source definitions live in `i18n/meta/`, generated output in `lib/paraglide/`. Never edit generated files.
+Internationalization uses Paraglide JS (Inlang). Messages are type-safe functions: `m.page_title_home()`. Source-of-truth is `projects/client/i18n/messages/<locale>.json` — `en.json` is the canonical message catalog. Generated output lives in `lib/paraglide/`; never edit generated files. The legacy `i18n/meta/` layer was removed in the trakt-time fork.
 
 ## Styling
 
