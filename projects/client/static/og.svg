@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="trakttime-og-bg" x1="0" y1="630" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e02760" />
+      <stop offset="100%" stop-color="#9f42c6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#trakttime-og-bg)" />
+
+  <!--
+    Composition: logo (180×180) on top, wordmark + tagline below, the whole
+    block centered horizontally and vertically. Stays inside the LinkedIn /
+    X crop safe-zone (≈1140×600 around the centre).
+  -->
+
+  <!-- Logo: T-on-stripes mark, viewBox 48×48 → scaled to 180. -->
+  <g transform="translate(510 130) scale(3.75)">
+    <g stroke="#fff" stroke-width="2.4" stroke-linecap="round">
+      <line x1="11" y1="14" x2="37" y2="14" />
+      <line x1="11" y1="18" x2="37" y2="18" />
+      <line x1="11" y1="22" x2="37" y2="22" />
+      <line x1="20" y1="23" x2="20" y2="40" />
+      <line x1="24" y1="23" x2="24" y2="40" />
+      <line x1="28" y1="23" x2="28" y2="40" />
+    </g>
+  </g>
+
+  <!-- Wordmark + tagline, both centered. -->
+  <g
+    font-family="Roboto, 'Helvetica Neue', Arial, sans-serif"
+    fill="#ffffff"
+    text-anchor="middle"
+  >
+    <text x="600" y="430" font-size="108" font-weight="700" letter-spacing="-2">Trakt Time</text>
+    <text x="600" y="495" font-size="36" font-weight="400" opacity="0.85">Track your shows &amp; movies</text>
+  </g>
+</svg>
