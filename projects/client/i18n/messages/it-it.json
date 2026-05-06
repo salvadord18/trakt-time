@@ -302,5 +302,6 @@
   "button_text_start_import": "Avvia importazione",
   "button_text_import_more": "Importa un altro file",
   "button_text_try_again": "Riprova",
-  "hint_mark_as_watched_to_rate": "Segna come visto per valutare o aggiungere ai preferiti"
+  "hint_mark_as_watched_to_rate": "Segna come visto per valutare o aggiungere ai preferiti",
+  "text_no_cast": "No cast information for this episode."
 }

@@ -243,6 +243,7 @@
   "button_text_cancel_import": "Stop Import",
   "warning_prompt_cancel_import": "Your import is in progress. Navigating away will stop it. Are you sure?",
   "header_cast": "Cast",
+  "text_no_cast": "No cast information for this episode.",
   "header_more_like_this": "More Like This",
   "text_loading": "Loading…",
   "button_text_load_more": "Load more",

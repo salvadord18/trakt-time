@@ -302,5 +302,6 @@
   "button_text_start_import": "Démarrer l'import",
   "button_text_import_more": "Importer un autre fichier",
   "button_text_try_again": "Réessayer",
-  "hint_mark_as_watched_to_rate": "Marquez comme vu pour noter ou ajouter aux favoris"
+  "hint_mark_as_watched_to_rate": "Marquez comme vu pour noter ou ajouter aux favoris",
+  "text_no_cast": "No cast information for this episode."
 }
