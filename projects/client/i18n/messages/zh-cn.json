@@ -310,5 +310,8 @@
   "button_text_new_list": "新建列表",
   "button_label_create_list": "新建列表",
   "button_text_create": "创建",
-  "placeholder_list_name": "列表名称"
+  "placeholder_list_name": "列表名称",
+  "header_more_options": "更多选项",
+  "button_text_more": "更多",
+  "button_label_more_actions": "{title} 的更多操作"
 }

@@ -310,5 +310,8 @@
   "button_text_new_list": "Новий список",
   "button_label_create_list": "Створити новий список",
   "button_text_create": "Створити",
-  "placeholder_list_name": "Назва списку"
+  "placeholder_list_name": "Назва списку",
+  "header_more_options": "Більше параметрів",
+  "button_text_more": "Більше",
+  "button_label_more_actions": "Більше дій для {title}"
 }

@@ -41,7 +41,6 @@
     display: flex;
     align-items: center;
     gap: var(--gap-s);
-    margin-top: var(--gap-xxs);
   }
 
   .watched-label {

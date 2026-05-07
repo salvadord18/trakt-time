@@ -310,5 +310,8 @@
   "button_text_new_list": "Ny lista",
   "button_label_create_list": "Skapa en ny lista",
   "button_text_create": "Skapa",
-  "placeholder_list_name": "Listnamn"
+  "placeholder_list_name": "Listnamn",
+  "header_more_options": "Fler alternativ",
+  "button_text_more": "Mer",
+  "button_label_more_actions": "Fler åtgärder för {title}"
 }

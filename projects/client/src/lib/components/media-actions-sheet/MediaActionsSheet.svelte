@@ -111,7 +111,7 @@
     onclick={onBackdropClick}
     role="dialog"
     aria-modal="true"
-    aria-label={m.header_rate_or_favorite()}
+    aria-label={m.header_more_options()}
     tabindex="-1"
   >
     <div class="sheet">

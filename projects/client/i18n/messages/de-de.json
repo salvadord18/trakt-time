@@ -310,5 +310,8 @@
   "button_text_new_list": "Neue Liste",
   "button_label_create_list": "Eine neue Liste erstellen",
   "button_text_create": "Erstellen",
-  "placeholder_list_name": "Listenname"
+  "placeholder_list_name": "Listenname",
+  "header_more_options": "Weitere Optionen",
+  "button_text_more": "Mehr",
+  "button_label_more_actions": "Weitere Aktionen für {title}"
 }

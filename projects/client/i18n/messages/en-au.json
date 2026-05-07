@@ -310,5 +310,8 @@
   "button_text_new_list": "New list",
   "button_label_create_list": "Create a new list",
   "button_text_create": "Create",
-  "placeholder_list_name": "List name"
+  "placeholder_list_name": "List name",
+  "header_more_options": "More options",
+  "button_text_more": "More",
+  "button_label_more_actions": "More actions for {title}"
 }

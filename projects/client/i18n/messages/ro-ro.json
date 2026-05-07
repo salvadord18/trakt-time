@@ -310,5 +310,8 @@
   "button_text_new_list": "Listă nouă",
   "button_label_create_list": "Creează o listă nouă",
   "button_text_create": "Creează",
-  "placeholder_list_name": "Numele listei"
+  "placeholder_list_name": "Numele listei",
+  "header_more_options": "Mai multe opțiuni",
+  "button_text_more": "Mai mult",
+  "button_label_more_actions": "Mai multe acțiuni pentru {title}"
 }

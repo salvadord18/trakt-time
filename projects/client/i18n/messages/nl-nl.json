@@ -310,5 +310,8 @@
   "button_text_new_list": "Nieuwe lijst",
   "button_label_create_list": "Een nieuwe lijst maken",
   "button_text_create": "Maken",
-  "placeholder_list_name": "Lijstnaam"
+  "placeholder_list_name": "Lijstnaam",
+  "header_more_options": "Meer opties",
+  "button_text_more": "Meer",
+  "button_label_more_actions": "Meer acties voor {title}"
 }

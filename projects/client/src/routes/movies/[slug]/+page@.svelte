@@ -136,7 +136,7 @@
               },
             }}
             title={intl?.title ?? movie.title}
-            onRate={() => (actionsOpen = true)}
+            onMore={() => (actionsOpen = true)}
           />
         </div>
       </div>

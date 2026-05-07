@@ -1,4 +1,5 @@
 <script lang="ts">
+  import MoreIcon from '$lib/components/icons/MoreIcon.svelte';
   import type { MarkAsWatchedStoreProps } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import WatchedRow from '$lib/components/watched-row/WatchedRow.svelte';
   import * as m from '$lib/paraglide/messages.js';
@@ -6,30 +7,30 @@
   type Props = {
     watchedProps: MarkAsWatchedStoreProps;
     title: string;
-    /** When provided, also renders a Rate / Favorite button that triggers it. */
-    onRate?: () => void;
+    /** When provided, also renders a More-actions button that triggers it. */
+    onMore?: () => void;
   };
 
-  const { watchedProps, title, onRate }: Props = $props();
+  const { watchedProps, title, onMore }: Props = $props();
 </script>
 
 <div class="summary-actions-row">
   <WatchedRow {watchedProps} {title} />
 
-  {#if onRate}
-    <button
-      type="button"
-      class="summary-rate-btn"
-      onclick={onRate}
-      aria-label={m.header_rate_or_favorite()}
-    >
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path
-          d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"
-        />
-      </svg>
-      {m.button_text_rate_or_favorite()}
-    </button>
+  {#if onMore}
+    <div class="summary-actions-divider" aria-hidden="true"></div>
+
+    <div class="summary-more">
+      <span class="summary-more-label">{m.button_text_more()}</span>
+      <button
+        type="button"
+        class="summary-more-btn"
+        onclick={onMore}
+        aria-label={m.button_label_more_actions({ title })}
+      >
+        <MoreIcon />
+      </button>
+    </div>
   {/if}
 </div>
 
@@ -38,30 +39,56 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--gap-s);
+    gap: var(--gap-m);
     margin-top: var(--gap-xxs);
   }
 
-  .summary-rate-btn {
-    display: inline-flex;
+  /* A 1px line that visually breaks the watch toggle from the more-actions
+     widget so they don't read as one chunky control. */
+  .summary-actions-divider {
+    width: 1px;
+    height: var(--ni-20);
+    background: var(--color-border);
+  }
+
+  .summary-more {
+    display: flex;
     align-items: center;
-    gap: var(--gap-xs);
-    background: color-mix(in srgb, var(--trakttime-accent) 15%, transparent);
-    border: var(--ni-1) solid
-      color-mix(in srgb, var(--trakttime-accent) 40%, transparent);
-    border-radius: var(--border-radius-s);
-    color: var(--trakttime-accent);
+    gap: var(--gap-s);
+  }
+
+  .summary-more-label {
     font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: var(--gap-xxs) var(--gap-s);
+    color: var(--color-text-secondary);
+  }
+
+  .summary-more-btn {
+    background: none;
+    border: var(--ni-2) solid var(--color-border);
+    border-radius: 50%;
+    width: var(--ni-28);
+    height: var(--ni-28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
     cursor: pointer;
-    width: fit-content;
+    padding: 0;
+    transition:
+      border-color var(--transition-increment) ease-in-out,
+      color var(--transition-increment) ease-in-out,
+      background var(--transition-increment) ease-in-out;
     -webkit-tap-highlight-color: transparent;
 
-    svg {
-      width: 0.9rem;
-      height: 0.9rem;
+    :global(svg) {
+      width: var(--ni-14);
+      height: var(--ni-14);
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--trakttime-accent);
+      color: var(--trakttime-accent);
     }
   }
 </style>

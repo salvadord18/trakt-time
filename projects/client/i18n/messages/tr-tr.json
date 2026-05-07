@@ -310,5 +310,8 @@
   "button_text_new_list": "Yeni liste",
   "button_label_create_list": "Yeni bir liste oluştur",
   "button_text_create": "Oluştur",
-  "placeholder_list_name": "Liste adı"
+  "placeholder_list_name": "Liste adı",
+  "header_more_options": "Daha fazla seçenek",
+  "button_text_more": "Daha fazla",
+  "button_label_more_actions": "{title} için daha fazla işlem"
 }

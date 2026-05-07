@@ -310,5 +310,8 @@
   "button_text_new_list": "新規リスト",
   "button_label_create_list": "新しいリストを作成",
   "button_text_create": "作成",
-  "placeholder_list_name": "リスト名"
+  "placeholder_list_name": "リスト名",
+  "header_more_options": "その他のオプション",
+  "button_text_more": "その他",
+  "button_label_more_actions": "{title} のその他のアクション"
 }

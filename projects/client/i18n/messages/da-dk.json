@@ -310,5 +310,8 @@
   "button_text_new_list": "Ny liste",
   "button_label_create_list": "Opret en ny liste",
   "button_text_create": "Opret",
-  "placeholder_list_name": "Listenavn"
+  "placeholder_list_name": "Listenavn",
+  "header_more_options": "Flere indstillinger",
+  "button_text_more": "Mere",
+  "button_label_more_actions": "Flere handlinger for {title}"
 }
