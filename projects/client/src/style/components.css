@@ -50,3 +50,114 @@
   padding: var(--ni-4) var(--ni-12);
   border-radius: var(--border-radius-xxl);
 }
+
+/* Summary-page shell — used by movies, shows, and episodes. ----------------
+ *
+ * The whole summary stack is identical across the three routes: a cover hero
+ * pinned at the top, a content column that overlaps the hero by
+ * `--trakttime-cover-offset`, an info row of poster + meta, and stacked
+ * sections below (genres, tagline, overview, related, cast, comments). These
+ * classes keep that skeleton in one place so the route pages can express only
+ * what's specific to them (title, meta tokens, action wiring).
+ */
+
+.summary-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--color-background);
+  padding-bottom: var(--trakttime-bottom-nav-height);
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  padding: 0 var(--gap-m) var(--gap-l);
+  margin-top: var(--trakttime-cover-offset);
+  position: relative;
+}
+
+.summary-header {
+  display: flex;
+  gap: var(--gap-m);
+  align-items: flex-end;
+}
+
+.summary-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+  padding-bottom: var(--gap-xs);
+  min-width: 0;
+}
+
+.summary-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.summary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.summary-meta > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.summary-meta > span:not(:last-child)::after {
+  content: '·';
+  margin-left: var(--gap-xs);
+}
+
+.summary-cert-badge {
+  border: var(--ni-1) solid var(--color-text-secondary);
+  padding: 0 var(--gap-xxs);
+  border-radius: var(--ni-2);
+  font-size: 0.65rem;
+}
+
+.summary-tagline {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.summary-overview {
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.summary-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.summary-loading-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--trakttime-loading-top);
+}
