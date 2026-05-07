@@ -133,24 +133,32 @@
               <span>{ratingLabel}</span>
             </div>
           {/if}
-          <WatchedRow
-            watchedProps={{
-              type: 'movie',
-              media: {
-                id: movie.id,
-                effectiveReleaseDate: movie.effectiveReleaseDate,
-                status: movie.status,
-              },
-            }}
-            title={intl?.title ?? movie.title}
-          />
+          <div class="media-actions-row">
+            <WatchedRow
+              watchedProps={{
+                type: 'movie',
+                media: {
+                  id: movie.id,
+                  effectiveReleaseDate: movie.effectiveReleaseDate,
+                  status: movie.status,
+                },
+              }}
+              title={intl?.title ?? movie.title}
+            />
 
-          <button class="actions-btn" onclick={() => (actionsOpen = true)} aria-label={m.header_rate_or_favorite()}>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            {m.button_text_rate_or_favorite()}
-          </button>
+            <button
+              class="actions-btn"
+              onclick={() => (actionsOpen = true)}
+              aria-label={m.header_rate_or_favorite()}
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+              {m.button_text_rate_or_favorite()}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -257,18 +265,16 @@
   .media-header {
     display: flex;
     gap: var(--gap-m);
-    align-items: stretch;
+    align-items: flex-end;
   }
 
   .poster-wrap {
     flex-shrink: 0;
+    width: var(--trakttime-poster-card-width);
     aspect-ratio: 2 / 3;
-    min-width: var(--trakttime-poster-card-width);
-    max-width: calc(var(--trakttime-poster-card-width) * 1.6);
     border-radius: var(--border-radius-m);
     overflow: hidden;
     box-shadow: 0 var(--ni-4) var(--ni-16) rgba(0, 0, 0, 0.4);
-    align-self: stretch;
 
     :global(img) {
       width: 100%;
@@ -284,6 +290,15 @@
     flex-direction: column;
     gap: var(--gap-xs);
     padding-bottom: var(--gap-xs);
+    min-width: 0;
+  }
+
+  .media-actions-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--gap-s);
+    margin-top: var(--gap-xxs);
   }
 
   .actions-btn {
@@ -291,7 +306,8 @@
     align-items: center;
     gap: var(--gap-xs);
     background: color-mix(in srgb, var(--trakttime-accent) 15%, transparent);
-    border: var(--ni-1) solid color-mix(in srgb, var(--trakttime-accent) 40%, transparent);
+    border: var(--ni-1) solid
+      color-mix(in srgb, var(--trakttime-accent) 40%, transparent);
     border-radius: var(--border-radius-s);
     color: var(--trakttime-accent);
     font-size: 0.75rem;
@@ -299,7 +315,6 @@
     letter-spacing: 0.04em;
     padding: var(--gap-xxs) var(--gap-s);
     cursor: pointer;
-    margin-top: var(--gap-xxs);
     width: fit-content;
 
     svg {
