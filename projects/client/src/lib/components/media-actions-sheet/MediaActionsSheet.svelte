@@ -4,11 +4,17 @@
   import { useFavorites } from '$lib/sections/media-actions/favorite/useFavorites.ts';
   import { useHasWatched } from '$lib/sections/media-actions/mark-as-watched/useHasWatched.ts';
   import { useListedOnIds } from '$lib/sections/media-actions/list/useListedOnIds.ts';
+  import {
+    type MarkAsWatchedStoreProps,
+    useMarkAsWatched,
+  } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import { useRatings } from '$lib/sections/summary/components/rating/useRatings.ts';
   import { useWatchlist } from '$lib/sections/media-actions/watchlist/useWatchlist.ts';
   import { userListsQuery } from '$lib/requests/queries/users/userListsQuery.ts';
   import CloseIcon from '$lib/components/icons/CloseIcon.svelte';
   import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
+  import LoaderIcon from '$lib/components/icons/LoaderIcon.svelte';
+  import MarkAsWatchedIcon from '$lib/components/icons/MarkAsWatchedIcon.svelte';
   import StarIcon from '$lib/components/icons/StarIcon.svelte';
   import CreateListPill from './CreateListPill.svelte';
   import ListToggleItem from './ListToggleItem.svelte';
@@ -20,12 +26,22 @@
     slug: string;
     title: string;
     isRateable: boolean;
+    /** When provided, the sheet can mark the title as watched in-place. */
+    watchedProps?: MarkAsWatchedStoreProps;
     isOpen: boolean;
     onClose: () => void;
   };
 
-  const { type, id, slug, title, isRateable, isOpen, onClose }: Props =
-    $props();
+  const {
+    type,
+    id,
+    slug,
+    title,
+    isRateable,
+    watchedProps,
+    isOpen,
+    onClose,
+  }: Props = $props();
 
   const { pendingRating, current, addRating, removeRating } = $derived(
     useRatings({ type, id }),
@@ -38,6 +54,16 @@
     $derived(useWatchlist({ type, media: { id } }));
 
   const { hasWatched } = $derived(useHasWatched({ type, id }));
+
+  const watchedHooks = $derived(
+    watchedProps ? useMarkAsWatched(watchedProps) : null,
+  );
+  const isMarkingAsWatched = $derived(watchedHooks?.isMarkingAsWatched);
+  const isWatchable = $derived(watchedHooks?.isWatchable ?? false);
+
+  function markAsWatchedNow() {
+    watchedHooks?.markAsWatched();
+  }
 
   const listsQuery = useQuery(userListsQuery({}));
   const lists = $derived($listsQuery.data ?? []);
@@ -138,6 +164,25 @@
 
       <section class="sheet-section">
         <span class="section-label">{m.header_quick_actions()}</span>
+
+        {#if watchedHooks && !$hasWatched && isWatchable}
+          <button
+            type="button"
+            class="action-pill action-pill--primary"
+            disabled={$isMarkingAsWatched}
+            onclick={markAsWatchedNow}
+            aria-label={m.button_label_mark_as_watched({ title })}
+          >
+            {#if $isMarkingAsWatched}
+              <LoaderIcon />
+            {:else}
+              <MarkAsWatchedIcon state="unwatched" />
+            {/if}
+            <span>{m.button_text_mark_as_watched()}</span>
+          </button>
+          <p class="watch-first-hint">{m.hint_mark_as_watched_to_rate()}</p>
+        {/if}
+
         <div class="action-pills">
           <button
             type="button"
@@ -187,9 +232,6 @@
             </span>
           </button>
         </div>
-        {#if !$hasWatched}
-          <p class="watch-first-hint">{m.hint_mark_as_watched_to_rate()}</p>
-        {/if}
       </section>
 
       <section class="sheet-section">
@@ -344,14 +386,15 @@
 
   :global(.stars-row) {
     display: flex;
-    gap: var(--gap-s);
+    gap: var(--gap-xs);
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     :global(svg) {
       width: var(--ni-32);
       height: var(--ni-32);
       color: var(--trakttime-accent);
+      transition: color 0.15s ease;
     }
   }
 
@@ -360,14 +403,16 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    color: var(--trakttime-accent);
     display: flex;
     align-items: center;
     transition: transform 0.1s ease;
 
     &:disabled {
-      opacity: 0.4;
       cursor: not-allowed;
+    }
+
+    &:disabled :global(svg) {
+      color: var(--color-border);
     }
 
     &:active:not(:disabled) {
@@ -413,6 +458,26 @@
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+  }
+
+  .action-pill--primary {
+    background: var(--trakttime-accent);
+    border-color: var(--trakttime-accent);
+    color: var(--color-background);
+    width: 100%;
+
+    :global(svg) {
+      animation: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: color-mix(in srgb, var(--trakttime-accent) 88%, white);
+    }
+
+    &:disabled {
+      opacity: 0.7;
     }
   }
 

@@ -243,6 +243,14 @@
       slug={show.slug}
       title={intl?.title ?? show.title}
       isRateable={showHasAired}
+      watchedProps={{
+        type: 'show',
+        media: {
+          id: show.id,
+          effectiveReleaseDate: show.effectiveReleaseDate,
+          episode: { count: show.episode.count },
+        },
+      }}
       isOpen={actionsOpen}
       onClose={() => (actionsOpen = false)}
     />

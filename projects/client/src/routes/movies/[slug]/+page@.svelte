@@ -190,6 +190,14 @@
       slug={movie.slug}
       title={intl?.title ?? movie.title}
       isRateable={movieHasAired}
+      watchedProps={{
+        type: 'movie',
+        media: {
+          id: movie.id,
+          effectiveReleaseDate: movie.effectiveReleaseDate,
+          status: movie.status,
+        },
+      }}
       isOpen={actionsOpen}
       onClose={() => (actionsOpen = false)}
     />
