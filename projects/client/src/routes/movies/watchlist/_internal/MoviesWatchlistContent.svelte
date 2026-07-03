@@ -30,6 +30,32 @@
     [...($historyList as unknown as MovieActivityHistory[])].reverse(),
   );
 
+  // "Load older" prepends rows above the viewport (history renders
+  // oldest-first at the top). Compensate the scroll position by the added
+  // height so the content the user is looking at stays put.
+  let scrollCompensation: { height: number; y: number } | null = null;
+
+  function loadOlderHistory() {
+    scrollCompensation = {
+      height: document.documentElement.scrollHeight,
+      y: globalThis.scrollY,
+    };
+    fetchOlderHistory();
+  }
+
+  $effect(() => {
+    void historyEntries.length;
+    if (!scrollCompensation) return;
+
+    const { height, y } = scrollCompensation;
+    scrollCompensation = null;
+
+    const delta = document.documentElement.scrollHeight - height;
+    if (delta > 0) {
+      globalThis.scrollTo({ top: y + delta, behavior: 'instant' });
+    }
+  });
+
   let watchlistAnchor = $state<HTMLElement | null>(null);
   let isReady = $state(false);
   let pendingScroll = $state(true);
@@ -81,7 +107,7 @@
       {#if $historyHasNextPage}
         <LoadMoreButton
           loading={$historyLoading}
-          onclick={fetchOlderHistory}
+          onclick={loadOlderHistory}
           label={m.button_text_load_older()}
           variant="older"
         />
@@ -119,6 +145,10 @@
   .watchlist-page {
     display: flex;
     flex-direction: column;
+
+    /* Scroll position is compensated manually when older history loads;
+       keep the browser's native scroll anchoring from double-adjusting. */
+    overflow-anchor: none;
 
     visibility: hidden;
 
