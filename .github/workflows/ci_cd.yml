@@ -36,6 +36,15 @@ jobs:
         working-directory: projects/client
         run: deno run -A npm:vitest --reporter=dot --reporter=github-actions
 
+      # vitest runs with browser resolve conditions, so server-only render
+      # breakage (e.g. a dependency that stops returning a svelte store
+      # during SSR) is invisible to it. Render a real page via the dev
+      # server to catch that class before it deploys.
+      - name: SSR render smoke
+        env:
+          TRAKT_CLIENT_ID: ${{ secrets.TRAKT_CLIENT_ID }}
+        run: ./.github/scripts/ssr-smoke.sh
+
   # Builds the SvelteKit client and ships the worker bundle to Cloudflare.
   # Only on `main`, only after tests pass.
   deploy:
