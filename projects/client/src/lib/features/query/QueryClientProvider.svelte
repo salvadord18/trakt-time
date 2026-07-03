@@ -1,23 +1,12 @@
 <script lang="ts">
-  import { isPWA } from "$lib/utils/devices/isPWA";
-  import { type QueryClient } from "@tanstack/svelte-query";
-  import { PersistQueryClientProvider } from "@tanstack/svelte-query-persist-client";
-  import { createPersister } from "./_internal/createPersister";
-
-  const busterVersion = "v2";
+  import { iffy } from "$lib/utils/function/iffy";
+  import type { QueryClient } from "@tanstack/query-core";
+  import { setQueryClient } from "./_internal/queryClientContext";
 
   const { children, client }: ChildrenProps & { client: QueryClient } =
     $props();
 
-  const persisterType = isPWA() ? "memory" : "idb";
+  setQueryClient(iffy(() => client));
 </script>
 
-<PersistQueryClientProvider
-  {client}
-  persistOptions={{
-    persister: createPersister(persisterType),
-    buster: busterVersion,
-  }}
->
-  {@render children()}
-</PersistQueryClientProvider>
+{@render children()}
