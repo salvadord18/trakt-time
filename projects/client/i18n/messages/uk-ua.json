@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Чому це було рекомендовано?",
   "list_title_recommendation_sources_activity": "Ви переглядали",
   "list_title_recommendation_sources_favorite": "Вам сподобалось",
-  "list_title_recommendation_sources_subgenre": "Вам подобається"
+  "list_title_recommendation_sources_subgenre": "Вам подобається",
+  "header_community_sentiment": "Настрій",
+  "header_sentiment_highlight": "Основне",
+  "header_sentiment_aspects": "Плюси та мінуси",
+  "header_sentiment_positive": "Позитивний",
+  "header_sentiment_negative": "Негативний",
+  "header_sentiment_mixed": "Змішаний",
+  "button_label_view_sentiment_analysis": "Переглянути аналіз настроїв",
+  "list_title_trivia": "Цікаві факти",
+  "button_label_view_trivia": "Переглянути цікаві факти"
 }

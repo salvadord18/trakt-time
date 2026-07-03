@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Защо беше препоръчано това?",
   "list_title_recommendation_sources_activity": "Гледали сте",
   "list_title_recommendation_sources_favorite": "Харесали сте много",
-  "list_title_recommendation_sources_subgenre": "Харесвате"
+  "list_title_recommendation_sources_subgenre": "Харесвате",
+  "header_community_sentiment": "Настроение",
+  "header_sentiment_highlight": "Акцент",
+  "header_sentiment_aspects": "Плюсове и минуси",
+  "header_sentiment_positive": "Положително",
+  "header_sentiment_negative": "Отрицателно",
+  "header_sentiment_mixed": "Смесено",
+  "button_label_view_sentiment_analysis": "Преглед на анализа на настроенията",
+  "list_title_trivia": "Любопитни факти",
+  "button_label_view_trivia": "Преглед на любопитни факти"
 }

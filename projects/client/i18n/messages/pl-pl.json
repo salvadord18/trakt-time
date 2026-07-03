@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Dlaczego to zostało polecone?",
   "list_title_recommendation_sources_activity": "Obejrzałeś",
   "list_title_recommendation_sources_favorite": "Co uwielbiasz",
-  "list_title_recommendation_sources_subgenre": "Co lubisz"
+  "list_title_recommendation_sources_subgenre": "Co lubisz",
+  "header_community_sentiment": "Sentyment",
+  "header_sentiment_highlight": "Wyróżnione",
+  "header_sentiment_aspects": "Zalety i wady",
+  "header_sentiment_positive": "Pozytywny",
+  "header_sentiment_negative": "Negatywny",
+  "header_sentiment_mixed": "Mieszany",
+  "button_label_view_sentiment_analysis": "Zobacz analizę nastrojów",
+  "list_title_trivia": "Ciekawostki",
+  "button_label_view_trivia": "Zobacz ciekawostki"
 }

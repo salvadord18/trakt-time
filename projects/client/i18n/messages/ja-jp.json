@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "これがお勧めされた理由",
   "list_title_recommendation_sources_activity": "視聴済み",
   "list_title_recommendation_sources_favorite": "お気に入り",
-  "list_title_recommendation_sources_subgenre": "お好み"
+  "list_title_recommendation_sources_subgenre": "お好み",
+  "header_community_sentiment": "コミュニティの評価",
+  "header_sentiment_highlight": "ハイライト",
+  "header_sentiment_aspects": "長所と短所",
+  "header_sentiment_positive": "ポジティブ",
+  "header_sentiment_negative": "ネガティブ",
+  "header_sentiment_mixed": "どちらとも言えない",
+  "button_label_view_sentiment_analysis": "感情分析を表示",
+  "list_title_trivia": "トリビア",
+  "button_label_view_trivia": "トリビアを表示"
 }

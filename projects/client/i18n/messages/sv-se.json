@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Varför rekommenderades detta?",
   "list_title_recommendation_sources_activity": "Du har sett",
   "list_title_recommendation_sources_favorite": "Du älskade",
-  "list_title_recommendation_sources_subgenre": "Du gillar"
+  "list_title_recommendation_sources_subgenre": "Du gillar",
+  "header_community_sentiment": "Känslor",
+  "header_sentiment_highlight": "Höjdpunkt",
+  "header_sentiment_aspects": "För- och nackdelar",
+  "header_sentiment_positive": "Positiv",
+  "header_sentiment_negative": "Negativ",
+  "header_sentiment_mixed": "Blandad",
+  "button_label_view_sentiment_analysis": "Visa sentimentanalys",
+  "list_title_trivia": "Kuriosa",
+  "button_label_view_trivia": "Visa trivia"
 }

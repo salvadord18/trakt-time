@@ -6,7 +6,10 @@
   import { movieSummaryQuery } from '$lib/requests/queries/movies/movieSummaryQuery.ts';
   import { moviePeopleQuery } from '$lib/requests/queries/movies/moviePeopleQuery.ts';
   import { movieIntlQuery } from '$lib/requests/queries/movies/movieIntlQuery.ts';
+  import RenderFor from '$lib/guards/RenderFor.svelte';
   import { useRelatedList } from '$lib/sections/lists/stores/useRelatedList.ts';
+  import SentimentSection from '$lib/sections/summary/components/sentiment/SentimentSection.svelte';
+  import TriviaSection from '$lib/sections/summary/components/trivia/TriviaSection.svelte';
   import CastSection from '$lib/sections/summary/_internal/CastSection.svelte';
   import CommentsSection from '$lib/sections/summary/_internal/CommentsSection.svelte';
   import MediaActionsRow from '$lib/sections/summary/_internal/MediaActionsRow.svelte';
@@ -148,6 +151,11 @@
       {#if intl?.overview ?? movie.overview}
         <p class="summary-overview">{intl?.overview ?? movie.overview}</p>
       {/if}
+
+      <RenderFor audience="vip">
+        <SentimentSection type="movie" {slug} />
+        <TriviaSection type="movie" {slug} />
+      </RenderFor>
 
       <CastSection {cast} isLoading={castLoading} />
 

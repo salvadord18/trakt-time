@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Почему это было рекомендовано?",
   "list_title_recommendation_sources_activity": "Вы смотрели",
   "list_title_recommendation_sources_favorite": "Вам понравилось",
-  "list_title_recommendation_sources_subgenre": "Вам нравится"
+  "list_title_recommendation_sources_subgenre": "Вам нравится",
+  "header_community_sentiment": "Настроение сообщества",
+  "header_sentiment_highlight": "Основные моменты",
+  "header_sentiment_aspects": "Плюсы и минусы",
+  "header_sentiment_positive": "Положительный",
+  "header_sentiment_negative": "Отрицательный",
+  "header_sentiment_mixed": "Смешанный",
+  "button_label_view_sentiment_analysis": "Просмотреть анализ настроений",
+  "list_title_trivia": "Интересные факты",
+  "button_label_view_trivia": "Просмотреть факты"
 }

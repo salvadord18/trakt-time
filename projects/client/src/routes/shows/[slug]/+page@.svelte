@@ -9,7 +9,10 @@
   import { showSeasonsQuery } from '$lib/requests/queries/shows/showSeasonsQuery.ts';
   import SeasonEpisodes from './_internal/SeasonEpisodes.svelte';
   import SeasonListSkeleton from './_internal/SeasonListSkeleton.svelte';
+  import RenderFor from '$lib/guards/RenderFor.svelte';
   import { useRelatedList } from '$lib/sections/lists/stores/useRelatedList.ts';
+  import SentimentSection from '$lib/sections/summary/components/sentiment/SentimentSection.svelte';
+  import TriviaSection from '$lib/sections/summary/components/trivia/TriviaSection.svelte';
   import CastSection from '$lib/sections/summary/_internal/CastSection.svelte';
   import CommentsSection from '$lib/sections/summary/_internal/CommentsSection.svelte';
   import MediaActionsRow from '$lib/sections/summary/_internal/MediaActionsRow.svelte';
@@ -173,6 +176,11 @@
       {#if intl?.overview ?? show.overview}
         <p class="summary-overview">{intl?.overview ?? show.overview}</p>
       {/if}
+
+      <RenderFor audience="vip">
+        <SentimentSection type="show" {slug} />
+        <TriviaSection type="show" {slug} />
+      </RenderFor>
 
       {#if seasonsLoading && seasons.length === 0}
         <section class="summary-section" aria-hidden="true">

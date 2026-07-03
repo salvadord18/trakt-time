@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "De ce mi-a fost recomandat?",
   "list_title_recommendation_sources_activity": "Ai vizionat",
   "list_title_recommendation_sources_favorite": "Ai iubit",
-  "list_title_recommendation_sources_subgenre": "Îți place"
+  "list_title_recommendation_sources_subgenre": "Îți place",
+  "header_community_sentiment": "Sentiment",
+  "header_sentiment_highlight": "Punct cheie",
+  "header_sentiment_aspects": "Pro & Contra",
+  "header_sentiment_positive": "Pozitiv",
+  "header_sentiment_negative": "Negativ",
+  "header_sentiment_mixed": "Mixt",
+  "button_label_view_sentiment_analysis": "Vezi analiza sentimentului",
+  "list_title_trivia": "Curiozități",
+  "button_label_view_trivia": "Vezi curiozități"
 }

@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Warum wurde dies empfohlen?",
   "list_title_recommendation_sources_activity": "Du hast gesehen",
   "list_title_recommendation_sources_favorite": "Du hast geliebt",
-  "list_title_recommendation_sources_subgenre": "Du magst"
+  "list_title_recommendation_sources_subgenre": "Du magst",
+  "header_community_sentiment": "Stimmung",
+  "header_sentiment_highlight": "Highlight",
+  "header_sentiment_aspects": "Pro & Kontra",
+  "header_sentiment_positive": "Positiv",
+  "header_sentiment_negative": "Negativ",
+  "header_sentiment_mixed": "Gemischt",
+  "button_label_view_sentiment_analysis": "Sentiment-Analyse anzeigen",
+  "list_title_trivia": "Trivia",
+  "button_label_view_trivia": "Trivia anzeigen"
 }

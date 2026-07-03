@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Perché è stato consigliato?",
   "list_title_recommendation_sources_activity": "Hai guardato",
   "list_title_recommendation_sources_favorite": "Hai amato",
-  "list_title_recommendation_sources_subgenre": "Ti piace"
+  "list_title_recommendation_sources_subgenre": "Ti piace",
+  "header_community_sentiment": "Sentimento della community",
+  "header_sentiment_highlight": "Punti salienti",
+  "header_sentiment_aspects": "Pro e Contro",
+  "header_sentiment_positive": "Positivo",
+  "header_sentiment_negative": "Negativo",
+  "header_sentiment_mixed": "Misto",
+  "button_label_view_sentiment_analysis": "Visualizza analisi del sentiment",
+  "list_title_trivia": "Curiosità",
+  "button_label_view_trivia": "Visualizza curiosità"
 }

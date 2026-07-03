@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "Hvorfor blev dette anbefalet?",
   "list_title_recommendation_sources_activity": "Du har set",
   "list_title_recommendation_sources_favorite": "Du elskede",
-  "list_title_recommendation_sources_subgenre": "Du kan lide"
+  "list_title_recommendation_sources_subgenre": "Du kan lide",
+  "header_community_sentiment": "Holdning",
+  "header_sentiment_highlight": "Højdepunkt",
+  "header_sentiment_aspects": "Fordele og ulemper",
+  "header_sentiment_positive": "Positiv",
+  "header_sentiment_negative": "Negativ",
+  "header_sentiment_mixed": "Blandet",
+  "button_label_view_sentiment_analysis": "Se sentimentanalyse",
+  "list_title_trivia": "Trivia",
+  "button_label_view_trivia": "Se trivia"
 }

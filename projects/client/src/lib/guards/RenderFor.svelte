@@ -1,18 +1,21 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import type { DeviceProps } from "./_internal/DeviceProps";
   import type { InputProps } from "./_internal/InputProps";
   import RenderForAudience from "./_internal/RenderForAudience.svelte";
   import RenderForDevice from "./_internal/RenderForDevice.svelte";
   import RenderForInput from "./_internal/RenderForInput.svelte";
 
-  type RenderForProps =
+  type RenderForProps = { fallback?: Snippet } & (
     | (ChildrenProps & AudienceProps & DeviceProps & InputProps)
     | (ChildrenProps &
         Partial<DeviceProps> &
         Partial<InputProps> &
-        AudienceProps);
+        AudienceProps)
+  );
 
-  const { children, audience, device, input }: RenderForProps = $props();
+  const { children, audience, device, input, fallback }: RenderForProps =
+    $props();
 </script>
 
 {#snippet guardedContent()}
@@ -41,6 +44,6 @@
   {/if}
 {/snippet}
 
-<RenderForAudience {audience}>
+<RenderForAudience {audience} {fallback}>
   {@render guardedContent()}
 </RenderForAudience>

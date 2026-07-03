@@ -343,5 +343,14 @@
   "drawer_title_recommendation_sources": "为何推荐此内容？",
   "list_title_recommendation_sources_activity": "你已观看",
   "list_title_recommendation_sources_favorite": "你喜爱过",
-  "list_title_recommendation_sources_subgenre": "你喜欢"
+  "list_title_recommendation_sources_subgenre": "你喜欢",
+  "header_community_sentiment": "社区情绪",
+  "header_sentiment_highlight": "亮点",
+  "header_sentiment_aspects": "优点与缺点",
+  "header_sentiment_positive": "积极",
+  "header_sentiment_negative": "消极",
+  "header_sentiment_mixed": "混合",
+  "button_label_view_sentiment_analysis": "查看情感分析",
+  "list_title_trivia": "趣闻",
+  "button_label_view_trivia": "查看趣闻"
 }
