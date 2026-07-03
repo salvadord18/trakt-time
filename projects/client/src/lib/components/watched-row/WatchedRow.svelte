@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MarkAsWatchedIcon from '$lib/components/icons/MarkAsWatchedIcon.svelte';
+  import TrackIcon from '$lib/components/icons/TrackIcon.svelte';
   import type { MarkAsWatchedStoreProps } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import { useMarkAsWatched } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import * as m from '$lib/paraglide/messages.js';
@@ -31,12 +31,13 @@
         : m.button_label_mark_as_watched({ title })}
       type="button"
     >
-      <MarkAsWatchedIcon state={$isWatched ? 'watched' : 'unwatched'} />
+      <TrackIcon state={$isWatched ? 'watched' : 'unwatched'} />
     </button>
   </div>
 {/if}
 
 <style lang="scss">
+  @use '$style/scss/mixins/index' as *;
   .watched-row {
     display: flex;
     align-items: center;
@@ -78,6 +79,15 @@
       border-color: var(--trakttime-accent);
       background: var(--trakttime-accent);
       color: var(--color-background);
+    }
+
+    /* Direct hover on an already-watched toggle previews removal. */
+    @include for-mouse {
+      &.is-watched:hover,
+      &.is-watched:focus-visible {
+        border-color: var(--red-400);
+        background: var(--red-400);
+      }
     }
 
     &:disabled {

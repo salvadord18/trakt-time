@@ -14,7 +14,7 @@
   import CloseIcon from '$lib/components/icons/CloseIcon.svelte';
   import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
   import LoaderIcon from '$lib/components/icons/LoaderIcon.svelte';
-  import MarkAsWatchedIcon from '$lib/components/icons/MarkAsWatchedIcon.svelte';
+  import TrackIcon from '$lib/components/icons/TrackIcon.svelte';
   import StarIcon from '$lib/components/icons/StarIcon.svelte';
   import CreateListPill from './CreateListPill.svelte';
   import ListToggleItem from './ListToggleItem.svelte';
@@ -175,7 +175,7 @@
             {#if $isMarkingAsWatched}
               <LoaderIcon />
             {:else}
-              <MarkAsWatchedIcon state="unwatched" />
+              <TrackIcon state="unwatched" />
             {/if}
             <span>{m.button_text_mark_as_watched()}</span>
           </button>

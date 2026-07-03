@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MarkAsWatchedIcon from '$lib/components/icons/MarkAsWatchedIcon.svelte';
+  import TrackIcon from '$lib/components/icons/TrackIcon.svelte';
   import type { EpisodeActivityHistory } from '$lib/requests/queries/users/episodeActivityHistoryQuery.ts';
   import { useMarkAsWatched } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
@@ -70,11 +70,12 @@
     disabled={$isMarkingAsWatched}
     onclick={toggleWatched}
   >
-    <MarkAsWatchedIcon state={$isWatched ? 'watched' : 'unwatched'} />
+    <TrackIcon state={$isWatched ? 'watched' : 'unwatched'} />
   </button>
 </article>
 
 <style lang="scss">
+  @use '$style/scss/mixins/index' as *;
   .history-row {
     display: flex;
     align-items: center;
@@ -167,6 +168,15 @@
       border-color: var(--trakttime-accent);
       background: var(--trakttime-accent);
       color: var(--color-background);
+    }
+
+    /* Direct hover on an already-watched toggle previews removal. */
+    @include for-mouse {
+      &.is-watched:hover,
+      &.is-watched:focus-visible {
+        border-color: var(--red-400);
+        background: var(--red-400);
+      }
     }
 
     &:disabled {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import CrossOriginImage from '$lib/features/image/components/CrossOriginImage.svelte';
-  import MarkAsWatchedIcon from '$lib/components/icons/MarkAsWatchedIcon.svelte';
+  import TrackIcon from '$lib/components/icons/TrackIcon.svelte';
   import type { EpisodeEntry } from '$lib/requests/models/EpisodeEntry.ts';
   import { useMarkAsWatched } from '$lib/sections/media-actions/mark-as-watched/useMarkAsWatched.ts';
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
@@ -68,12 +68,13 @@
         ? m.button_label_remove_from_watched({ title: episode.title })
         : m.button_label_mark_as_watched({ title: episode.title })}
     >
-      <MarkAsWatchedIcon state={$isWatched ? 'watched' : 'unwatched'} />
+      <TrackIcon state={$isWatched ? 'watched' : 'unwatched'} />
     </button>
   {/if}
 </li>
 
 <style lang="scss">
+  @use '$style/scss/mixins/index' as *;
   .episode-row {
     display: flex;
     align-items: center;
@@ -166,6 +167,15 @@
       border-color: var(--trakttime-accent);
       background: var(--trakttime-accent);
       color: var(--color-background);
+    }
+
+    /* Direct hover on an already-watched toggle previews removal. */
+    @include for-mouse {
+      &.is-watched:hover,
+      &.is-watched:focus-visible {
+        border-color: var(--red-400);
+        background: var(--red-400);
+      }
     }
 
     &:disabled {
