@@ -1,3 +1,4 @@
+import { parseLocalDate } from '$lib/utils/date/parseLocalDate.ts';
 import type { PersonResponse } from '@trakt/api';
 import { crewPositionSchema } from '../models/CrewPosition.ts';
 import type { PersonSummary } from '../models/PersonSummary.ts';
@@ -21,8 +22,8 @@ export const mapToPersonSummary = (
      * FIXME: @seferturan remove cast once @trakt/api is updated
      */
     height: (response as unknown as { height: number }).height,
-    birthday: response.birthday ? new Date(response.birthday) : null,
+    birthday: response.birthday ? parseLocalDate(response.birthday) : null,
     socialMedia: mapToSocialMedia(response),
-    deathDate: response.death ? new Date(response.death) : null,
+    deathDate: response.death ? parseLocalDate(response.death) : null,
   };
 };
