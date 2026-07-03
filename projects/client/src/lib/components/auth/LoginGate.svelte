@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ExternalLinkIcon from '$lib/components/icons/ExternalLinkIcon.svelte';
   import { browser } from '$app/environment';
   import * as m from '$lib/paraglide/messages.js';
 
@@ -40,9 +41,7 @@
           rel="noopener noreferrer"
         >
           {m.welcome_tvtime_liberator_cta()}
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z" />
-          </svg>
+          <ExternalLinkIcon size="small" />
         </a>
         <a
           class="login-gate-migrate-link"
@@ -51,9 +50,7 @@
           rel="noopener noreferrer"
         >
           {m.welcome_tvtime_gdpr_cta()}
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z" />
-          </svg>
+          <ExternalLinkIcon size="small" />
         </a>
       </div>
     </div>
@@ -230,7 +227,7 @@
       opacity: 0.8;
     }
 
-    svg {
+    :global(svg) {
       width: 0.7rem;
       height: 0.7rem;
     }
