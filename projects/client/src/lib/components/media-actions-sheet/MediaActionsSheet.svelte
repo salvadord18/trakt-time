@@ -43,9 +43,8 @@
     onClose,
   }: Props = $props();
 
-  const { pendingRating, current, addRating, removeRating } = $derived(
-    useRatings({ type, id }),
-  );
+  const { pendingRating, isSubmitting, current, addRating, removeRating } =
+    $derived(useRatings({ type, id }));
 
   const { isFavorited, isUpdatingFavorite, addToFavorites, removeFromFavorites } =
     $derived(useFavorites({ type, id, title }));
@@ -100,7 +99,7 @@
     if (e.target === e.currentTarget) onClose();
   }
 
-  const ratingDisabled = $derived($pendingRating !== null || !$hasWatched);
+  const ratingDisabled = $derived($isSubmitting || !$hasWatched);
   const favoriteDisabled = $derived($isUpdatingFavorite || !$hasWatched);
 </script>
 
