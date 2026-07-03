@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
   import BackBar from '$lib/components/back-bar/BackBar.svelte';
-  import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import PosterSkeleton from '$lib/components/poster-card/PosterSkeleton.svelte';
   import { useQuery } from '$lib/features/query/useQuery.ts';
   import { showSummaryQuery } from '$lib/requests/queries/shows/showSummaryQuery.ts';
@@ -9,6 +8,7 @@
   import { showIntlQuery } from '$lib/requests/queries/shows/showIntlQuery.ts';
   import { showSeasonsQuery } from '$lib/requests/queries/shows/showSeasonsQuery.ts';
   import SeasonEpisodes from './_internal/SeasonEpisodes.svelte';
+  import SeasonListSkeleton from './_internal/SeasonListSkeleton.svelte';
   import { useRelatedList } from '$lib/sections/lists/stores/useRelatedList.ts';
   import CastSection from '$lib/sections/summary/_internal/CastSection.svelte';
   import CommentsSection from '$lib/sections/summary/_internal/CommentsSection.svelte';
@@ -17,6 +17,7 @@
   import MediaGenres from '$lib/sections/summary/_internal/MediaGenres.svelte';
   import MediaPoster from '$lib/sections/summary/_internal/MediaPoster.svelte';
   import MediaRating from '$lib/sections/summary/_internal/MediaRating.svelte';
+  import SummarySkeleton from '$lib/sections/summary/_internal/SummarySkeleton.svelte';
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
   import PosterCard from '$lib/components/poster-card/PosterCard.svelte';
   import MediaActionsSheet from '$lib/components/media-actions-sheet/MediaActionsSheet.svelte';
@@ -43,6 +44,7 @@
 
   const seasonsQuery = $derived(useQuery(showSeasonsQuery({ slug })));
   const seasons = $derived($seasonsQuery.data ?? []);
+  const seasonsLoading = $derived($seasonsQuery.isLoading);
 
   let openSeason = $state<number | null>(null);
   $effect(() => {
@@ -114,9 +116,12 @@
   <BackBar href="/shows/watchlist" label={m.page_title_shows()} />
 
   {#if isLoading && !show}
-    <div class="summary-loading-state">
-      <LoadingIndicator />
-    </div>
+    <SummarySkeleton>
+      <section class="summary-section" aria-hidden="true">
+        <h2 class="summary-section-title">{m.header_seasons()}</h2>
+        <SeasonListSkeleton />
+      </section>
+    </SummarySkeleton>
   {:else if show}
     <MediaCoverHero coverUrl={show.cover.url.medium} />
 
@@ -169,7 +174,12 @@
         <p class="summary-overview">{intl?.overview ?? show.overview}</p>
       {/if}
 
-      {#if seasons.length > 0}
+      {#if seasonsLoading && seasons.length === 0}
+        <section class="summary-section" aria-hidden="true">
+          <h2 class="summary-section-title">{m.header_seasons()}</h2>
+          <SeasonListSkeleton />
+        </section>
+      {:else if seasons.length > 0}
         <section class="summary-section">
           <h2 class="summary-section-title">{m.header_seasons()}</h2>
           <ul class="seasons-list">
@@ -196,6 +206,7 @@
                     season={season.number}
                     showId={show.id}
                     showTitle={intl?.title ?? show.title}
+                    episodeCount={season.episodes.count}
                   />
                 {/if}
               </li>

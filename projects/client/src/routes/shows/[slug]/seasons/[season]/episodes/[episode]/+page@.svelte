@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
   import BackBar from '$lib/components/back-bar/BackBar.svelte';
-  import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import { useQuery } from '$lib/features/query/useQuery.ts';
   import { episodeSummaryQuery } from '$lib/requests/queries/episode/episodeSummaryQuery.ts';
   import { episodeIntlQuery } from '$lib/requests/queries/episode/episodeIntlQuery.ts';
@@ -19,6 +18,7 @@
   import MediaCoverHero from '$lib/sections/summary/_internal/MediaCoverHero.svelte';
   import MediaPoster from '$lib/sections/summary/_internal/MediaPoster.svelte';
   import MediaRating from '$lib/sections/summary/_internal/MediaRating.svelte';
+  import SummarySkeleton from '$lib/sections/summary/_internal/SummarySkeleton.svelte';
   import { hasAired } from '$lib/utils/media/hasAired.ts';
   import * as m from '$lib/paraglide/messages.js';
 
@@ -133,9 +133,7 @@
   <BackBar href={showUrl} label={show?.title ?? ''} />
 
   {#if isLoading}
-    <div class="summary-loading-state">
-      <LoadingIndicator />
-    </div>
+    <SummarySkeleton />
   {:else if episode}
     <MediaCoverHero {coverUrl} />
 

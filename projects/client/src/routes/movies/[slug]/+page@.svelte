@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
   import BackBar from '$lib/components/back-bar/BackBar.svelte';
-  import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import PosterSkeleton from '$lib/components/poster-card/PosterSkeleton.svelte';
   import { useQuery } from '$lib/features/query/useQuery.ts';
   import { movieSummaryQuery } from '$lib/requests/queries/movies/movieSummaryQuery.ts';
@@ -15,6 +14,7 @@
   import MediaGenres from '$lib/sections/summary/_internal/MediaGenres.svelte';
   import MediaPoster from '$lib/sections/summary/_internal/MediaPoster.svelte';
   import MediaRating from '$lib/sections/summary/_internal/MediaRating.svelte';
+  import SummarySkeleton from '$lib/sections/summary/_internal/SummarySkeleton.svelte';
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
   import PosterCard from '$lib/components/poster-card/PosterCard.svelte';
   import MediaActionsSheet from '$lib/components/media-actions-sheet/MediaActionsSheet.svelte';
@@ -101,9 +101,7 @@
   <BackBar href="/movies/watchlist" label={m.page_title_movies()} />
 
   {#if isLoading && !movie}
-    <div class="summary-loading-state">
-      <LoadingIndicator />
-    </div>
+    <SummarySkeleton />
   {:else if movie}
     <MediaCoverHero coverUrl={movie.cover.url.medium} />
 
