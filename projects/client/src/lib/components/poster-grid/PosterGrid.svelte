@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" generics="T extends ShowEntry | MovieEntry">
   import BackBar from '$lib/components/back-bar/BackBar.svelte';
   import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import LoadMoreButton from '$lib/components/load-more-button/LoadMoreButton.svelte';
@@ -7,16 +7,18 @@
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
   import * as m from '$lib/paraglide/messages.js';
   import PosterCard from '$lib/components/poster-card/PosterCard.svelte';
+  import type { Snippet } from 'svelte';
 
   type MediaEntry = ShowEntry | MovieEntry;
 
   type Props = {
-    items: MediaEntry[];
+    items: T[];
     isLoading: boolean;
     hasNextPage: boolean;
     fetchNextPage: () => void;
     title: string;
     backHref?: string;
+    card?: Snippet<[T]>;
   };
 
   const {
@@ -26,6 +28,7 @@
     fetchNextPage,
     title,
     backHref = '/discover',
+    card,
   }: Props = $props();
 
   const getHref = (item: MediaEntry) =>
@@ -46,13 +49,17 @@
   {:else}
     <div class="poster-grid" role="list">
       {#each items as item (item.id)}
-        <PosterCard
-          type={item.type}
-          href={getHref(item)}
-          id={item.id}
-          title={item.title}
-          posterUrl={item.poster.url.thumb}
-        />
+        {#if card}
+          {@render card(item)}
+        {:else}
+          <PosterCard
+            type={item.type}
+            href={getHref(item)}
+            id={item.id}
+            title={item.title}
+            posterUrl={item.poster.url.thumb}
+          />
+        {/if}
       {/each}
     </div>
 

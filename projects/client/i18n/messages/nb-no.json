@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Time stenger dørene, men visningshistorikken din trenger ikke å forsvinne med den. Flytt alt over til Trakt og fortsett sporingen uten å gå glipp av noe.",
   "welcome_tvtime_liberator_body": "Eksporter hele historikken din med nettleserutvidelsen TV Time Liberator, eller last opp den offisielle GDPR-dataeksporten fra TV Times personvernportal. Begge deler fungerer.",
   "welcome_tvtime_liberator_cta": "Skaff TV Time Liberator",
-  "welcome_tvtime_gdpr_cta": "Be om GDPR-eksport"
+  "welcome_tvtime_gdpr_cta": "Be om GDPR-eksport",
+  "button_text_view_recommendation_sources": "Hvorfor dette?",
+  "drawer_title_recommendation_sources": "Hvorfor ble dette anbefalt?",
+  "list_title_recommendation_sources_activity": "Du har sett",
+  "list_title_recommendation_sources_favorite": "Du elsket",
+  "list_title_recommendation_sources_subgenre": "Du liker"
 }

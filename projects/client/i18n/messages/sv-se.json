@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Time stänger sina dörrar, men din tittarhistorik behöver inte försvinna med det. Flytta över allt till Trakt och fortsätt spåra utan att missa något.",
   "welcome_tvtime_liberator_body": "Exportera din fullständiga historik med webbläsartillägget TV Time Liberator, eller ladda upp den officiella GDPR-dataexporten från TV Times integritetsportal. Båda fungerar.",
   "welcome_tvtime_liberator_cta": "Skaffa TV Time Liberator",
-  "welcome_tvtime_gdpr_cta": "Begär GDPR-export"
+  "welcome_tvtime_gdpr_cta": "Begär GDPR-export",
+  "button_text_view_recommendation_sources": "Varför detta?",
+  "drawer_title_recommendation_sources": "Varför rekommenderades detta?",
+  "list_title_recommendation_sources_activity": "Du har sett",
+  "list_title_recommendation_sources_favorite": "Du älskade",
+  "list_title_recommendation_sources_subgenre": "Du gillar"
 }

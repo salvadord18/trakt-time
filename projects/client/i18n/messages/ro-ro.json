@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Time își închide porțile, dar istoricul tău de vizionare nu trebuie să dispară odată cu el. Transferă totul pe Trakt și continuă să urmărești fără să ratezi nimic.",
   "welcome_tvtime_liberator_body": "Exportă-ți istoricul complet cu extensia de browser TV Time Liberator, sau încarcă exportul oficial de date GDPR din portalul de confidențialitate TV Time. Ambele funcționează.",
   "welcome_tvtime_liberator_cta": "Descarcă TV Time Liberator",
-  "welcome_tvtime_gdpr_cta": "Solicită exportul GDPR"
+  "welcome_tvtime_gdpr_cta": "Solicită exportul GDPR",
+  "button_text_view_recommendation_sources": "De ce asta?",
+  "drawer_title_recommendation_sources": "De ce mi-a fost recomandat?",
+  "list_title_recommendation_sources_activity": "Ai vizionat",
+  "list_title_recommendation_sources_favorite": "Ai iubit",
+  "list_title_recommendation_sources_subgenre": "Îți place"
 }

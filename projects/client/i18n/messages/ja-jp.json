@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Timeは終了しますが、あなたの視聴履歴が一緒に消える必要はありません。すべてをTraktに移行して、滞りなく追跡を続けましょう。",
   "welcome_tvtime_liberator_body": "TV Time Liberatorブラウザ拡張機能で完全な履歴をエクスポートするか、TV Timeのプライバシーポータルから公式のGDPRデータエクスポートをアップロードしてください。どちらの方法でも動作します。",
   "welcome_tvtime_liberator_cta": "TV Time Liberatorを入手",
-  "welcome_tvtime_gdpr_cta": "GDPRデータエクスポートをリクエスト"
+  "welcome_tvtime_gdpr_cta": "GDPRデータエクスポートをリクエスト",
+  "button_text_view_recommendation_sources": "なぜこれ？",
+  "drawer_title_recommendation_sources": "これがお勧めされた理由",
+  "list_title_recommendation_sources_activity": "視聴済み",
+  "list_title_recommendation_sources_favorite": "お気に入り",
+  "list_title_recommendation_sources_subgenre": "お好み"
 }

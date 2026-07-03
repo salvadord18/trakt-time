@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Time zamyka swoje podwoje, ale Twoja historia oglądania nie musi z nią zniknąć. Przenieś wszystko do Trakt i kontynuuj śledzenie bez żadnych przeszkód.",
   "welcome_tvtime_liberator_body": "Wyeksportuj całą swoją historię za pomocą rozszerzenia przeglądarki TV Time Liberator lub prześlij oficjalny eksport danych RODO z portalu prywatności TV Time. Obie metody działają.",
   "welcome_tvtime_liberator_cta": "Pobierz TV Time Liberator",
-  "welcome_tvtime_gdpr_cta": "Poproś o eksport RODO"
+  "welcome_tvtime_gdpr_cta": "Poproś o eksport RODO",
+  "button_text_view_recommendation_sources": "Dlaczego to?",
+  "drawer_title_recommendation_sources": "Dlaczego to zostało polecone?",
+  "list_title_recommendation_sources_activity": "Obejrzałeś",
+  "list_title_recommendation_sources_favorite": "Co uwielbiasz",
+  "list_title_recommendation_sources_subgenre": "Co lubisz"
 }

@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Time sluit de deuren, maar je kijkgeschiedenis hoeft niet verloren te gaan. Breng alles over naar Trakt en blijf bijhouden zonder iets te missen.",
   "welcome_tvtime_liberator_body": "Exporteer je volledige geschiedenis met de TV Time Liberator browserextensie, of upload de officiële AVG-gegevensexport van TV Time's privacyportaal. Beide werken.",
   "welcome_tvtime_liberator_cta": "Download TV Time Liberator",
-  "welcome_tvtime_gdpr_cta": "GDPR-export aanvragen"
+  "welcome_tvtime_gdpr_cta": "GDPR-export aanvragen",
+  "button_text_view_recommendation_sources": "Waarom dit?",
+  "drawer_title_recommendation_sources": "Waarom werd dit aanbevolen?",
+  "list_title_recommendation_sources_activity": "Je hebt gekeken",
+  "list_title_recommendation_sources_favorite": "Je vond geweldig",
+  "list_title_recommendation_sources_subgenre": "Je vindt leuk"
 }

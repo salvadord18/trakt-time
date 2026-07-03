@@ -3,7 +3,11 @@
   import PosterGrid from '$lib/components/poster-grid/PosterGrid.svelte';
   import LoginGate from '$lib/components/auth/LoginGate.svelte';
   import { useAuth } from '$lib/features/auth/stores/useAuth.ts';
-  import { useRecommendedList } from '$lib/sections/lists/recommended/useRecommendedList.ts';
+  import RecommendedPosterCard from '$lib/sections/lists/recommended/RecommendedPosterCard.svelte';
+  import {
+    type RecommendedEntry,
+    useRecommendedList,
+  } from '$lib/sections/lists/recommended/useRecommendedList.ts';
 
   const { isAuthorized, login } = useAuth();
 
@@ -18,6 +22,10 @@
   <title>{m.page_title_recommended_movies()} - Trakt Time</title>
 </svelte:head>
 
+{#snippet recommendedCard(media: RecommendedEntry)}
+  <RecommendedPosterCard {media} />
+{/snippet}
+
 {#if !$isAuthorized}
   <LoginGate {login} />
 {:else}
@@ -27,5 +35,6 @@
     isLoading={$isLoading}
     hasNextPage={$hasNextPage}
     {fetchNextPage}
+    card={recommendedCard}
   />
 {/if}

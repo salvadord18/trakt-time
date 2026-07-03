@@ -338,5 +338,10 @@
   "welcome_tvtime_body": "TV Time schließt seine Pforten, aber Ihr Sehverlauf muss nicht mit ihm verschwinden. Bringen Sie alles zu Trakt und verfolgen Sie weiterhin Ihre Inhalte, ohne etwas zu verpassen.",
   "welcome_tvtime_liberator_body": "Exportieren Sie Ihre vollständige Historie mit der TV Time Liberator Browser-Erweiterung, oder laden Sie den offiziellen GDPR-Datenexport vom Datenschutzportal von TV Time hoch. Beides funktioniert.",
   "welcome_tvtime_liberator_cta": "TV Time Liberator herunterladen",
-  "welcome_tvtime_gdpr_cta": "DSGVO-Export anfordern"
+  "welcome_tvtime_gdpr_cta": "DSGVO-Export anfordern",
+  "button_text_view_recommendation_sources": "Warum das?",
+  "drawer_title_recommendation_sources": "Warum wurde dies empfohlen?",
+  "list_title_recommendation_sources_activity": "Du hast gesehen",
+  "list_title_recommendation_sources_favorite": "Du hast geliebt",
+  "list_title_recommendation_sources_subgenre": "Du magst"
 }
