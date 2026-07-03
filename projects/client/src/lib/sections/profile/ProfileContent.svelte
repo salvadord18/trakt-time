@@ -45,13 +45,22 @@
   const listsLoading = $derived($listsQuery.isLoading);
 
   const watchlistShowsResult = $derived(
-    useWatchList({ slug, type: 'show', limit: 10, sortBy: 'added' }),
+    // intent 'default': profile previews show the raw watchlist. Anything
+    // else filters it through the VIEWER's in-progress list, hiding the
+    // profile owner's titles based on the wrong user's activity.
+    useWatchList({ slug, type: 'show', limit: 10, sortBy: 'added', intent: 'default' }),
   );
   const watchlistShows = $derived(watchlistShowsResult.list);
   const watchlistShowsLoading = $derived(watchlistShowsResult.isLoading);
 
   const watchlistMoviesResult = $derived(
-    useWatchList({ slug, type: 'movie', limit: 10, sortBy: 'added' }),
+    useWatchList({
+      slug,
+      type: 'movie',
+      limit: 10,
+      sortBy: 'added',
+      intent: 'default',
+    }),
   );
   const watchlistMovies = $derived(watchlistMoviesResult.list);
   const watchlistMoviesLoading = $derived(watchlistMoviesResult.isLoading);
