@@ -331,5 +331,6 @@
   "import_status_matching": "Matching movies {processed} / {total}…",
   "import_status_syncing": "Syncing {processed} / {total} items…",
   "import_summary_ratings": "{count} ratings",
-  "import_drop_zip": "Drop a ZIP file here or click to upload."
+  "import_drop_zip": "Drop a ZIP file here or click to upload.",
+  "welcome_tvtime_import_cta": "Import from TV Time"
 }

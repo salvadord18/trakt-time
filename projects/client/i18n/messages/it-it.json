@@ -331,5 +331,6 @@
   "import_status_matching": "Corrispondenza film {processed} / {total}…",
   "import_status_syncing": "Sincronizzazione {processed} / {total} elementi…",
   "import_summary_ratings": "{count} valutazioni",
-  "import_drop_zip": "Trascina qui un file ZIP o clicca per caricarlo."
+  "import_drop_zip": "Trascina qui un file ZIP o clicca per caricarlo.",
+  "welcome_tvtime_import_cta": "Importa da TV Time"
 }

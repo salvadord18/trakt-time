@@ -331,5 +331,6 @@
   "import_status_matching": "映画を照合中 {processed} / {total}…",
   "import_status_syncing": "{processed} / {total}項目を同期中…",
   "import_summary_ratings": "{count}件の評価",
-  "import_drop_zip": "ZIPファイルをここにドロップするか、クリックしてアップロードしてください。"
+  "import_drop_zip": "ZIPファイルをここにドロップするか、クリックしてアップロードしてください。",
+  "welcome_tvtime_import_cta": "TV Timeからインポート"
 }

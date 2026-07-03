@@ -331,5 +331,6 @@
   "import_status_matching": "Matchar filmer {processed} / {total}…",
   "import_status_syncing": "Synkroniserar {processed} / {total} objekt…",
   "import_summary_ratings": "{count} betyg",
-  "import_drop_zip": "Släpp en ZIP-fil här eller klicka för att ladda upp."
+  "import_drop_zip": "Släpp en ZIP-fil här eller klicka för att ladda upp.",
+  "welcome_tvtime_import_cta": "Importera från TV Time"
 }

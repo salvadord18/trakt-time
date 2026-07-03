@@ -95,9 +95,14 @@
   </div>
 {/snippet}
 
-{#snippet emptyRow(text: string)}
+{#snippet emptyRow(text: string, showImportCta: boolean = false)}
   <div class="poster-row-empty">
     <p>{text}</p>
+    {#if showImportCta && isOwner}
+      <a href="/settings" class="import-cta-link">
+        {m.welcome_tvtime_import_cta()}
+      </a>
+    {/if}
   </div>
 {/snippet}
 
@@ -267,7 +272,7 @@
     {#if $watchlistShowsLoading && $watchlistShows.length === 0}
       {@render skeletonRow('s')}
     {:else if $watchlistShows.length === 0}
-      {@render emptyRow(m.text_empty_show_watchlist())}
+      {@render emptyRow(m.text_empty_show_watchlist(), true)}
     {:else}
       <div class="poster-row" role="list">
         {#each $watchlistShows as item (item.key)}
@@ -326,7 +331,7 @@
     {#if $watchlistMoviesLoading && $watchlistMovies.length === 0}
       {@render skeletonRow('m')}
     {:else if $watchlistMovies.length === 0}
-      {@render emptyRow(m.text_empty_movie_watchlist())}
+      {@render emptyRow(m.text_empty_movie_watchlist(), true)}
     {:else}
       <div class="poster-row" role="list">
         {#each $watchlistMovies as item (item.key)}
@@ -692,8 +697,10 @@
 
   .poster-row-empty {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: var(--gap-s);
     /* Match poster-card footprint: 2:3 image + title line-height + gap */
     min-height: calc(var(--trakttime-poster-card-width) * 1.5 + 1rem + var(--gap-xxs));
     padding: 0 var(--gap-m);
@@ -704,6 +711,12 @@
     p {
       margin: 0;
     }
+  }
+
+  .import-cta-link {
+    color: var(--trakttime-accent);
+    text-decoration: none;
+    font-weight: 600;
   }
 
 </style>

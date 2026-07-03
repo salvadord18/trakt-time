@@ -73,6 +73,7 @@
   {:else if $list.length === 0 && historyEntries.length === 0}
     <div class="empty-state">
       <p>{m.text_empty_movie_watchlist()}</p>
+      <a href="/settings" class="cta-link">{m.welcome_tvtime_import_cta()}</a>
       <a href="/discover" class="cta-link">{m.cta_explore_movies()}</a>
     </div>
   {:else}

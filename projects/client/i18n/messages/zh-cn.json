@@ -331,5 +331,6 @@
   "import_status_matching": "正在匹配电影 {processed} / {total}…",
   "import_status_syncing": "正在同步 {processed} / {total} 个项目…",
   "import_summary_ratings": "{count} 个评分",
-  "import_drop_zip": "将 ZIP 文件拖放到此处或点击上传。"
+  "import_drop_zip": "将 ZIP 文件拖放到此处或点击上传。",
+  "welcome_tvtime_import_cta": "从 TV Time 导入"
 }

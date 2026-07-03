@@ -331,5 +331,6 @@
   "import_status_matching": "Eşleşen filmler {processed} / {total}…",
   "import_status_syncing": "{processed} / {total} öğe senkronize ediliyor…",
   "import_summary_ratings": "{count} derecelendirme",
-  "import_drop_zip": "Bir ZIP dosyasını buraya sürükleyin veya yüklemek için tıklayın."
+  "import_drop_zip": "Bir ZIP dosyasını buraya sürükleyin veya yüklemek için tıklayın.",
+  "welcome_tvtime_import_cta": "TV Time'dan içe aktar"
 }

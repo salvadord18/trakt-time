@@ -331,5 +331,6 @@
   "import_status_matching": "Съпоставяне на филми {processed} / {total}…",
   "import_status_syncing": "Синхронизиране на {processed} / {total} елемента…",
   "import_summary_ratings": "{count} оценки",
-  "import_drop_zip": "Плъзнете ZIP файл тук или щракнете за качване."
+  "import_drop_zip": "Плъзнете ZIP файл тук или щракнете за качване.",
+  "welcome_tvtime_import_cta": "Импортиране от TV Time"
 }

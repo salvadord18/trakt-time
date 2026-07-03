@@ -331,5 +331,6 @@
   "import_status_matching": "Se potrivesc filme {processed} / {total}…",
   "import_status_syncing": "Se sincronizează {processed} / {total} elemente…",
   "import_summary_ratings": "{count} evaluări",
-  "import_drop_zip": "Trage un fișier ZIP aici sau apasă pentru a încărca."
+  "import_drop_zip": "Trage un fișier ZIP aici sau apasă pentru a încărca.",
+  "welcome_tvtime_import_cta": "Importă de pe TV Time"
 }
