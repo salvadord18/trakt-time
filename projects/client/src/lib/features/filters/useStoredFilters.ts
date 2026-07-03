@@ -57,15 +57,26 @@ export function useStoredFilters() {
   const { search } = useParameters();
   const { track } = useTrack(AnalyticsEvent.Filters);
 
-  const goToStoredFilters = (filters: StoredFilter) => {
+  const goToStoredFilters = (
+    filters: StoredFilter,
+    baseUrl: URL = page.url,
+  ) => {
+    const url = new URL(baseUrl);
+
     processFilterParams(
       Object.entries(filters),
       (key, value) => {
-        page.url.searchParams.set(key, String(value));
+        url.searchParams.set(key, String(value));
       },
     );
 
-    goto(page.url, { replaceState: true });
+    // No-op navigations (e.g. empty stored filters) would otherwise loop
+    // forever under afterNavigate, since the URL never changes.
+    if (url.href === page.url.href) {
+      return;
+    }
+
+    goto(url, { replaceState: true });
   };
 
   const saveFilters = () => {
@@ -111,8 +122,9 @@ export function useStoredFilters() {
       return;
     }
 
-    FILTERS.forEach((filter) => page.url.searchParams.delete(filter.key));
-    goToStoredFilters(defaultFilters);
+    const url = new URL(page.url);
+    FILTERS.forEach((filter) => url.searchParams.delete(filter.key));
+    goToStoredFilters(defaultFilters, url);
   };
 
   const setActiveMode = (mode: string) => {
