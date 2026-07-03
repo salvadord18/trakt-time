@@ -7,6 +7,7 @@
   import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import LoadMoreButton from '$lib/components/load-more-button/LoadMoreButton.svelte';
   import { useWatchList } from '$lib/sections/lists/watchlist/useWatchList.ts';
+  import { useAnchoredHistoryLoad } from '$lib/sections/lists/stores/useAnchoredHistoryLoad.svelte.ts';
   import { useRecentlyWatchedList } from '$lib/sections/lists/stores/useRecentlyWatchedList.ts';
   import type { MovieActivityHistory } from '$lib/requests/queries/users/movieActivityHistoryQuery.ts';
   import * as m from '$lib/paraglide/messages.js';
@@ -31,29 +32,12 @@
   );
 
   // "Load older" prepends rows above the viewport (history renders
-  // oldest-first at the top). Compensate the scroll position by the added
-  // height so the content the user is looking at stays put.
-  let scrollCompensation: { height: number; y: number } | null = null;
-
-  function loadOlderHistory() {
-    scrollCompensation = {
-      height: document.documentElement.scrollHeight,
-      y: globalThis.scrollY,
-    };
-    fetchOlderHistory();
-  }
-
-  $effect(() => {
-    void historyEntries.length;
-    if (!scrollCompensation) return;
-
-    const { height, y } = scrollCompensation;
-    scrollCompensation = null;
-
-    const delta = document.documentElement.scrollHeight - height;
-    if (delta > 0) {
-      globalThis.scrollTo({ top: y + delta, behavior: 'instant' });
-    }
+  // oldest-first at the top); keep the viewport anchored on what the
+  // user is reading.
+  const loadOlderHistory = useAnchoredHistoryLoad({
+    loading: () => $historyLoading,
+    entryCount: () => historyEntries.length,
+    fetchOlder: fetchOlderHistory,
   });
 
   let watchlistAnchor = $state<HTMLElement | null>(null);
