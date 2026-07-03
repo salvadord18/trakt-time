@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CtaLink from '$lib/components/link/CtaLink.svelte';
   import * as m from '$lib/paraglide/messages.js';
   import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import SettingsIcon from '$lib/components/icons/SettingsIcon.svelte';
@@ -108,9 +109,9 @@
   <div class="poster-row-empty">
     <p>{text}</p>
     {#if showImportCta && isOwner}
-      <a href="/settings" class="import-cta-link">
+      <CtaLink href="/settings">
         {m.welcome_tvtime_import_cta()}
-      </a>
+      </CtaLink>
     {/if}
   </div>
 {/snippet}
@@ -722,10 +723,5 @@
     }
   }
 
-  .import-cta-link {
-    color: var(--trakttime-accent);
-    text-decoration: none;
-    font-weight: 600;
-  }
 
 </style>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CtaLink from '$lib/components/link/CtaLink.svelte';
   import { afterNavigate } from '$app/navigation';
   import { tick } from 'svelte';
   import GroupHeader from '$lib/components/group-header/GroupHeader.svelte';
@@ -83,8 +84,8 @@
   {:else if $list.length === 0 && historyEntries.length === 0}
     <div class="empty-state">
       <p>{m.text_empty_movie_watchlist()}</p>
-      <a href="/settings" class="cta-link">{m.welcome_tvtime_import_cta()}</a>
-      <a href="/discover" class="cta-link">{m.cta_explore_movies()}</a>
+      <CtaLink href="/settings">{m.welcome_tvtime_import_cta()}</CtaLink>
+      <CtaLink href="/discover">{m.cta_explore_movies()}</CtaLink>
     </div>
   {:else}
     {#if historyEntries.length > 0}
@@ -151,12 +152,6 @@
     gap: var(--gap-m);
     color: var(--color-text-secondary);
     font-size: 0.875rem;
-  }
-
-  .cta-link {
-    color: var(--trakttime-accent);
-    text-decoration: none;
-    font-weight: 600;
   }
 
   .watchlist-anchor {
