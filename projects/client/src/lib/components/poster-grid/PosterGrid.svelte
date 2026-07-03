@@ -1,7 +1,7 @@
 <script lang="ts" generics="T extends ShowEntry | MovieEntry">
   import BackBar from '$lib/components/back-bar/BackBar.svelte';
-  import LoadingIndicator from '$lib/components/icons/LoadingIndicator.svelte';
   import LoadMoreButton from '$lib/components/load-more-button/LoadMoreButton.svelte';
+  import PosterSkeleton from '$lib/components/poster-card/PosterSkeleton.svelte';
   import type { MovieEntry } from '$lib/requests/models/MovieEntry.ts';
   import type { ShowEntry } from '$lib/requests/models/ShowEntry.ts';
   import { UrlBuilder } from '$lib/utils/url/UrlBuilder.ts';
@@ -33,14 +33,18 @@
 
   const getHref = (item: MediaEntry) =>
     item.type === 'show' ? UrlBuilder.show(item.slug) : UrlBuilder.movie(item.slug);
+
+  const SKELETON_COUNT = 12;
 </script>
 
 <div class="grid-page">
   <BackBar href={backHref} label={title} />
 
   {#if isLoading && items.length === 0}
-    <div class="loading-state">
-      <LoadingIndicator />
+    <div class="poster-grid" aria-hidden="true">
+      {#each Array(SKELETON_COUNT) as _, i (`gs-${i}`)}
+        <PosterSkeleton />
+      {/each}
     </div>
   {:else if items.length === 0}
     <div class="empty-state">
@@ -84,7 +88,6 @@
     padding-bottom: var(--trakttime-bottom-nav-height);
   }
 
-  .loading-state,
   .empty-state {
     flex: 1;
     display: flex;
