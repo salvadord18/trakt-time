@@ -139,8 +139,11 @@
   }
 
   .cast-skeleton-avatar {
+    align-self: flex-start;
     width: 68px;
     height: 68px;
+    /* Same border as .cast-avatar so the footprint is 70x70 either way. */
+    border: var(--ni-1) solid var(--color-border);
     border-radius: 50%;
     @include shimmer-bg;
   }
@@ -149,15 +152,16 @@
     border-radius: var(--border-radius-s);
     @include shimmer-bg;
 
+    /* Heights track the rendered line boxes of .cast-name / .cast-character. */
     &--name {
       width: var(--ni-56);
-      height: 0.6875rem;
+      height: 0.8125rem;
       animation-delay: 0.1s;
     }
 
     &--char {
       width: var(--ni-44);
-      height: 0.625rem;
+      height: 0.6875rem;
       animation-delay: 0.2s;
     }
   }
